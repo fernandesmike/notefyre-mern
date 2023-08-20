@@ -1,0 +1,29 @@
+# Do not ever, ever include .env files into your remote repo
+.env
+
+# Ignoring patterns format
+# /folder_name/ , / (slash) is for directories
+# *.extension_name (*) asterisk, is a wildcard for names or directories
+# ! - to exclude something
+
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
