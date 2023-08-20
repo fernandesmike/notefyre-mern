@@ -1,0 +1,7 @@
+# ignore all logs (even though I don't have any :] )
+*.logs
+
+# Do not ever, ever include .env files into your remote repo
+.env
+
+backend/node_modules/
