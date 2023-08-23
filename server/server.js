@@ -2,24 +2,28 @@ require("dotenv").config();
 
 const express = require("express");
 const mongoose = require("mongoose");
-const app = express();
+const cors = require("cors");
 
 // Import routes
 const notesRoute = require("./routes/notesRoute");
 
-const PORT = process.env.PORT;
+const app = express();
 
-// Middleware for Request objects with json contents
-app.use(express.json());
-
-// Middleware for intercepting each requests
+// Middleware for logging each requests
 app.use((req, res, next) => {
   console.log(req.path, req.method);
   next();
 });
 
+// Middleware for Request objects with json contents
+// And to allow cross origin access
+app.use(express.json());
+app.use(cors());
+
 // Use all routes
 app.use(notesRoute);
+
+const PORT = process.env.PORT;
 
 mongoose
   .connect(process.env.DB_URI)

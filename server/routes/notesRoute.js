@@ -9,7 +9,7 @@ const {
 } = require("../controllers/noteController");
 
 // GET all notes
-router.get("/", getAllNotes);
+router.get("/all", getAllNotes);
 
 // GET single note
 router.get("/:id", getNote);
