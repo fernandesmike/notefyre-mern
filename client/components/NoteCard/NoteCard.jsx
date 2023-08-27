@@ -9,7 +9,9 @@ const NoteCard = ({ note }) => {
 
         {/* Title */}
         <div>
-          <h2>{note.title}</h2>
+          <a href="">
+            <h2>{note.title}</h2>
+          </a>
         </div>
 
         {/* From */}
