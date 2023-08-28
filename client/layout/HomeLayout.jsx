@@ -1,13 +1,16 @@
 import { Outlet } from "react-router-dom";
 
-const Layout = () => {
+// Components
+import { Header } from "../components/Header/Header";
+
+const HomeLayout = () => {
   return (
     <main>
-      <h1>Navigation bar at the top</h1>
+      <Header />
       <Outlet />
       <h2>Footer here at the bottom</h2>
     </main>
   );
 };
 
-export default Layout;
+export default HomeLayout;

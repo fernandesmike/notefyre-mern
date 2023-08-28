@@ -1,0 +1,9 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header div.logo {
+  font-size: 3rem;
+}
