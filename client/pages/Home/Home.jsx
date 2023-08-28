@@ -11,14 +11,18 @@ const Home = () => {
   const [notes, setNotes] = useState();
 
   useEffect(() => {
-    const fetchAllNotes = async () => {
-      const response = await axios.get("http://localhost:4000/all");
-      const allNotes = response.data;
-      setNotes(allNotes);
-      console.log(allNotes);
-    };
+    try {
+      const fetchAllNotes = async () => {
+        const response = await axios.get("http://localhost:4000/all");
+        const allNotes = response.data;
+        setNotes(allNotes);
+        console.log(allNotes);
+      };
 
-    fetchAllNotes();
+      fetchAllNotes();
+    } catch (error) {
+      console.log(error);
+    }
   }, []);
 
   return (
