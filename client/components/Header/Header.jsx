@@ -1,13 +1,18 @@
 // Styling
 import "./header.css";
 
-export const Header = () => {
+export const Header = ({ userName, userPhoto }) => {
   return (
     <header>
       <div className="logo">LOGO</div>
-      <div className="profile">
+      {userName ? (
+        <div className="profile">
+          <p>{userName}</p>
+          <p>{userPhoto}</p>
+        </div>
+      ) : (
         <p>Login</p>
-      </div>
+      )}
     </header>
   );
 };
