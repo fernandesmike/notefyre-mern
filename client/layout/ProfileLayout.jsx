@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 
-const Layout = () => {
+export const ProfileLayout = () => {
   return (
     <main>
       <h1>Navigation bar at the top</h1>
@@ -9,5 +9,3 @@ const Layout = () => {
     </main>
   );
 };
-
-export default Layout;
