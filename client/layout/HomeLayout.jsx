@@ -9,6 +9,7 @@ const HomeLayout = () => {
       <Header />
       <Outlet />
       <h2>Footer here at the bottom</h2>
+      
     </main>
   );
 };
