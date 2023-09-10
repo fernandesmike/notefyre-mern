@@ -25,6 +25,7 @@ const NewNote = () => {
       setContents("");
 
       console.log(postedNote.data);
+      window.location.href = "/";
     } catch (err) {
       setError(err);
     }
@@ -73,7 +74,7 @@ const NewNote = () => {
         value={contents}
       ></textarea>
 
-      <button>Submite note</button>
+      <button>Submit note</button>
       {error && <Error errorMessage={error.message} />}
     </form>
   );
