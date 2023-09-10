@@ -9,7 +9,7 @@ const NoteCard = ({ note }) => {
 
         {/* Title */}
         <div>
-          <a href="">
+          <a href=" ">
             <h2>{note.title}</h2>
           </a>
         </div>
