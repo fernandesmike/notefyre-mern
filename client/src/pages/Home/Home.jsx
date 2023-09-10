@@ -30,7 +30,7 @@ const Home = () => {
       {/* Greetings */}
       <section>
         <div>
-          <h1>Good day, User239454!</h1>
+          <h1>Good day, Mike!</h1>
           <p>Learn something new everyday and take careful notes</p>
         </div>
       </section>
