@@ -1,12 +1,12 @@
 import { Route, Routes } from "react-router-dom";
 
 // Pages
-import Home from "../pages/Home/Home";
-import Profile from "../pages/Profile/Profile";
-import HomeLayout from "../layout/HomeLayout";
-import NewNote from "../pages/NewNote/NewNote";
-import NoteDetails from "../pages/NoteDetails/NoteDetails";
-import { ProfileLayout } from "../layout/ProfileLayout";
+import Home from "./pages/Home/Home";
+import Profile from "./pages/Profile/Profile";
+import HomeLayout from "./layout/HomeLayout";
+import NewNote from "./pages/NewNote/NewNote";
+import NoteDetails from "./pages/NoteDetails/NoteDetails";
+import { ProfileLayout } from "./layout/ProfileLayout";
 
 function App() {
   return (

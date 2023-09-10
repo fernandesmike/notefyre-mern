@@ -5,7 +5,7 @@ import NoteCard from "../../components/NoteCard/NoteCard";
 import NoNotes from "../../components/EmptyState/NoNotes";
 
 // Styling
-import "../../styles/Home.css";
+import "../../../styles/Home.css";
 
 const Home = () => {
   const [notes, setNotes] = useState();
