@@ -4,7 +4,20 @@ header {
   justify-content: space-between;
 }
 
-header div.logo {
-  font-size: 2rem;
+/* App icon */
+
+.app-icon {
+  height: 40px;
 }
 
+.app-icon img {
+  height: 100%;
+}
+
+/* Avatar section */
+
+.avatar-container {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
