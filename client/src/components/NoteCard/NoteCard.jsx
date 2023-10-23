@@ -14,9 +14,11 @@ const NoteCard = ({ note }) => {
         <div>
           <p>{note.from}</p>
         </div>
-      </div>
 
-      <h4>test</h4>
+        <div>
+          <p>{note.contents}</p>
+        </div>
+      </div>
     </article>
   );
 };

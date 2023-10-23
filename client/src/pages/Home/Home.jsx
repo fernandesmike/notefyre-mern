@@ -13,7 +13,7 @@ const Home = () => {
   useEffect(() => {
     try {
       const fetchAllNotes = async () => {
-        const response = await axios.get("http://localhost:4000/all");
+        const response = await axios.get("http://localhost:4000/api/v1/notes");
         const allNotes = response.data;
         setNotes(allNotes);
         console.log(allNotes);
@@ -37,6 +37,13 @@ const Home = () => {
 
       <section>
         <div>
+          {/* LEARNING:
+          
+              When async operationsa involved, always check for the state contents first
+              before accessing it. As JSX code are executed immediately while you
+              are still trying to display the async data!
+          */}
+
           {notes ? (
             notes.map((note) => <NoteCard key={note._id} note={note} />)
           ) : (

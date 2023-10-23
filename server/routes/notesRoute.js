@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const router = express.Router();
 const {
@@ -9,19 +10,19 @@ const {
 } = require("../controllers/noteController");
 
 // GET all notes
-router.get("/all", getAllNotes);
+router.get(process.env.REACT_APP_API_NOTES_ENDPOINT, getAllNotes);
 
 // GET single note
-router.get("/:id", getNote);
+router.get(process.env.REACT_APP_API_SINGLE_NOTE_ENDPOINT, getNote);
 
 // POST a new note
-router.post("/new-note", postNote);
+router.post(process.env.REACT_APP_API_CREATE_NOTE_ENDPOINT, postNote);
 
 // UPDATE a note
-router.patch("/:id", updateNote);
+router.patch(process.env.REACT_APP_API_SINGLE_NOTE_ENDPOINT, updateNote);
 
 // DELETE a note
-router.delete("/:id", deleteNote);
+router.delete(process.env.REACT_APP_API_SINGLE_NOTE_ENDPOINT, deleteNote);
 
 // Allows the router to be imported on the server
 module.exports = router;
