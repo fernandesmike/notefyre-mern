@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const router = express.Router();
 const {
@@ -8,8 +9,11 @@ const {
   deleteNote,
 } = require("../controllers/noteController");
 
+const baseApi = process.env.REACT_APP_API_BASE_URL;
+const notesEndpoint = process.env.REACT_APP_API_NOTES_ENDPOINT;
+
 // GET all notes
-router.get("/all", getAllNotes);
+router.get(`${baseApi}${notesEndpoint}`, getAllNotes);
 
 // GET single note
 router.get("/:id", getNote);

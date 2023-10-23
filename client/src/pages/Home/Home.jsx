@@ -13,7 +13,7 @@ const Home = () => {
   useEffect(() => {
     try {
       const fetchAllNotes = async () => {
-        const response = await axios.get("http://localhost:4000/all");
+        const response = await axios.get("http://localhost:4000/api/v1/notes");
         const allNotes = response.data;
         setNotes(allNotes);
         console.log(allNotes);
