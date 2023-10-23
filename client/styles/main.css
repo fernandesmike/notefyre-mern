@@ -1,0 +1,9 @@
+body {
+  background-image: url("../src//assets//backgrounds/main-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: var(--page-bg);
+  background-attachment: fixed;
+  color: var(--main-txt);
+}

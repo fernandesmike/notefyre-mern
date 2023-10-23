@@ -1,0 +1,9 @@
+.body {
+  font-size: 1.125rem;
+  opacity: 0.8;
+  color: #e6f2ef;
+}
+
+.body-paragraph {
+  line-height: 145%;
+}

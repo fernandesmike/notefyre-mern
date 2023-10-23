@@ -7,6 +7,10 @@ import HomeLayout from "./layout/HomeLayout";
 import NewNote from "./pages/NewNote/NewNote";
 import NoteDetails from "./pages/NoteDetails/NoteDetails";
 
+// Main styling
+import "../styles/main.css";
+import "../styles/color-scheme.css";
+
 function App() {
   return (
     <>
