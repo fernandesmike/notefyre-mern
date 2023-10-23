@@ -18,7 +18,7 @@ export const Header = ({ userName, userPhoto }) => {
             <p>{userPhoto}</p>
           </div>
         ) : (
-          <p>Login</p>
+          <p>You&apos;re not logged in</p>
         )}
       </div>
     </header>

@@ -8,11 +8,7 @@ const NoteCard = ({ note }) => {
         </div>
 
         {/* Title */}
-        <div>
-          <a href=" ">
-            <h2>{note.title}</h2>
-          </a>
-        </div>
+        <div>{note.title}</div>
 
         {/* From */}
         <div>
