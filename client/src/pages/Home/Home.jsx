@@ -37,6 +37,13 @@ const Home = () => {
 
       <section>
         <div>
+          {/* LEARNING:
+          
+              When async operationsa involved, always check for the state contents first
+              before accessing it. As JSX code are executed immediately while you
+              are still trying to display the async data!
+          */}
+
           {notes ? (
             notes.map((note) => <NoteCard key={note._id} note={note} />)
           ) : (
