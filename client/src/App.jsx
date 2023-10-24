@@ -6,6 +6,7 @@ import Profile from "./pages/Profile/Profile";
 import HomeLayout from "./layout/HomeLayout";
 import NewNote from "./pages/NewNote/NewNote";
 import NoteDetails from "./pages/NoteDetails/NoteDetails";
+import Signin from "./pages/Signin/Signin";
 
 // Main styling
 import "../styles/main.css";
@@ -15,6 +16,7 @@ function App() {
   return (
     <>
       <Routes>
+        <Route path="/signin" element={<Signin />} />
         <Route element={<HomeLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/new" element={<NewNote />} />
