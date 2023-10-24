@@ -6,4 +6,9 @@ body {
   background-color: var(--page-bg);
   background-attachment: fixed;
   color: var(--main-txt);
+
+  /* Font */
+  font-family: "Outfit", Verdana, Tahoma, sans-serif;
+  font-size: 1.125rem;
+  margin: 0 80px;
 }

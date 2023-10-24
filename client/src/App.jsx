@@ -9,7 +9,7 @@ import NoteDetails from "./pages/NoteDetails/NoteDetails";
 
 // Main styling
 import "../styles/main.css";
-import "../styles/color-scheme.css";
+import "../styles/base-style-guide.css";
 
 function App() {
   return (
