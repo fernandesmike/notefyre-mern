@@ -15,7 +15,7 @@ h1 {
 }
 
 p {
-  width: 75%;
+  width: 60%;
   text-align: center;
 }
 
@@ -29,18 +29,26 @@ p {
 
 .cta-container .fb-prompt {
   background-color: var(--card-bg);
-  padding: 32px 24px;
+  padding: 24px 40px;
   width: 320px;
   border-radius: 16px;
   margin-bottom: 24px;
-  color: var(--main-text);
   border: 3px solid var(--card-border);
   text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
 }
 
 .cta-container a {
   display: block;
-  color: var(--brand-accent);
+  color: var(--main-text);
+}
+
+.cta-register {
+  text-decoration: none;
+  
 }
 
 .notefyre-branding {

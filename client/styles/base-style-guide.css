@@ -14,8 +14,9 @@
 }
 
 .prm-text {
-  font-size: 2.125rem;
-  font-weight: medium;
+  font-size: 1.625rem;
+  font-weight: 500;
+  color: var(--main-txt);
 }
 
 .paragraph {
