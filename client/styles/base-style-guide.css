@@ -23,5 +23,5 @@
   opacity: var(--sec-txt-op);
   font-size: 1.125rem;
   line-height: 145%;
-  font-weight: regular;
+  font-weight: 400;
 }

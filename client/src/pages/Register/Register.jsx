@@ -1,20 +1,22 @@
-import style from "./Signin.module.css";
+// Styling
+import style from "./Register.module.css";
 
 // Components
 import Title from "../../components/Title/Title";
-import FacebookAuth from "../../components/Buttons/FacebookAuth";
 
-const Signin = () => {
+const Register = () => {
   return (
     <section>
       <Title
-        title={"All your notes in one virtual place"}
+        title={"Be one of the glorious note-takers!"}
         subtitle={
-          "A simple and minimalistic note taking companion to help you keep andpreserve your everyday learnings."
+          "Create your account for free and save your notes through infinity and beyond."
         }
       />
       <div className={style["cta-container"]}>
-        <FacebookAuth />
+        <a className={style["fb-prompt"]} href="">
+          Sign in using Facebook
+        </a>
         <a href="">Nah, skip for now</a>
         <a className={style["cta-register"]} href="">
           Don&apos;t have an account? Register here
@@ -24,4 +26,4 @@ const Signin = () => {
   );
 };
 
-export default Signin;
+export default Register;
