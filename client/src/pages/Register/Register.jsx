@@ -1,8 +1,11 @@
+import { Link } from "react-router-dom";
+
 // Styling
 import style from "./Register.module.css";
 
 // Components
 import Title from "../../components/Title/Title";
+import FacebookAuth from "../../components/Buttons/FacebookAuth";
 
 const Register = () => {
   return (
@@ -12,15 +15,14 @@ const Register = () => {
         subtitle={
           "Create your account for free and save your notes through infinity and beyond."
         }
+        showHighlight={false}
       />
       <div className={style["cta-container"]}>
-        <a className={style["fb-prompt"]} href="">
-          Sign in using Facebook
-        </a>
-        <a href="">Nah, skip for now</a>
-        <a className={style["cta-register"]} href="">
-          Don&apos;t have an account? Register here
-        </a>
+        <p>Alright, let&apos;s create my account</p>
+        <FacebookAuth procedure={"Register"} />
+        <Link className={style["cta-signin"]} to="/">
+          Sign-in instead
+        </Link>
       </div>
     </section>
   );

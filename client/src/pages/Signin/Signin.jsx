@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+
+// Styling
 import style from "./Signin.module.css";
 
 // Components
@@ -12,13 +15,16 @@ const Signin = () => {
         subtitle={
           "A simple and minimalistic note taking companion to help you keep andpreserve your everyday learnings."
         }
+        showHighlight={true}
       />
       <div className={style["cta-container"]}>
-        <FacebookAuth />
-        <a href="">Nah, skip for now</a>
-        <a className={style["cta-register"]} href="">
-          Don&apos;t have an account? Register here
-        </a>
+        <FacebookAuth procedure={"Continue"} />
+        <Link className={style["link"]} to="/home">
+          Nah, skip for now
+        </Link>
+        <Link className={style["cta-register"]} to="/register">
+          Don&apos;t have an account? Register here{" "}
+        </Link>
       </div>
     </section>
   );

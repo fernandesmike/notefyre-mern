@@ -5,7 +5,7 @@ import style from "./Title.module.css";
 import Brand from "../../assets/branding/brand-dark.svg";
 import Highlight from "../../assets/icons/highlight.svg";
 
-const Title = ({ title, subtitle }) => {
+const Title = ({ title, subtitle, showHighlight }) => {
   return (
     <section>
       <div className={style["brand-container"]}>
@@ -18,7 +18,7 @@ const Title = ({ title, subtitle }) => {
       <div className={style["vp-content"]}>
         <div className={style["highlight"]}>
           <h1 className="prm-text">{title}</h1>
-          <img src={Highlight} />
+          {showHighlight ? <img src={Highlight} /> : null}
         </div>
         <p className="paragraph">{subtitle}</p>
       </div>
