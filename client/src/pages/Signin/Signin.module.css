@@ -1,0 +1,13 @@
+.cta-container {
+  text-align: center;
+}
+
+.cta-container a {
+  display: block;
+  color: var(--main-text);
+}
+
+.cta-container .cta-register {
+  margin-top: 40px;
+  color: var(--brand-accent);
+}

@@ -1,13 +1,27 @@
 :root {
   --page-bg: hsl(202, 85%, 6%);
 
-  /* Typography colors */
-  --main-txt: hsl(165, 32%, 93%);
-  --brand-accent: hsl(162, 67%, 70%);
-
   --base-dark: hsl(162, 100%, 56%);
 
   /* Components */
   --card-bg: hsl(202, 49%, 10%);
   --card-border: hsl(196, 16%, 26%);
+
+  /* Typography */
+  --main-txt: hsl(165, 32%, 93%);
+  --brand-accent: hsl(162, 67%, 70%);
+  --sec-txt-op: 0.85;
+}
+
+.prm-text {
+  font-size: 1.625rem;
+  font-weight: 500;
+  color: var(--main-txt);
+}
+
+.paragraph {
+  opacity: var(--sec-txt-op);
+  font-size: 1.125rem;
+  line-height: 145%;
+  font-weight: 400;
 }
