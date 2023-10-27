@@ -13,4 +13,5 @@
 
 .fb-prompt a {
   text-decoration: none;
+  color: var(--main-txt);
 }

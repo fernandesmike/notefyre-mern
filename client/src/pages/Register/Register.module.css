@@ -1,0 +1,15 @@
+.cta-container {
+  text-align: center;
+}
+
+.cta-container p {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.cta-signin {
+  color: var(--brand-accent);
+}
