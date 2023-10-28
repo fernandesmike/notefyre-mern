@@ -3,18 +3,18 @@ section,
   display: flex;
   align-items: center;
   flex-direction: column;
+  gap: 8px;
 }
 
 section {
   margin-top: 60px;
-  gap: 24px;
 }
 
 h1 {
   margin: 0;
 }
 
-p {
+.vp-content p {
   width: 60%;
   text-align: center;
 }
