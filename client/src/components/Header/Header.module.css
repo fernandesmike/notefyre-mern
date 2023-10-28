@@ -1,23 +1,20 @@
 header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+}
+
+.account-section {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.credentials {
+  
 }
 
 /* App icon */
-
-.app-icon {
+.brand-section img {
   height: 40px;
-}
-
-.app-icon img {
-  height: 100%;
-}
-
-/* Avatar section */
-
-.avatar-container {
-  display: flex;
-  gap: 16px;
-  align-items: center;
 }

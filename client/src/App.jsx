@@ -12,6 +12,7 @@ import Register from "./pages/Register/Register";
 // Main styling
 import "../styles/main.css";
 import "../styles/base-style-guide.css";
+import "../styles/css-reset.css";
 
 function App() {
   return (

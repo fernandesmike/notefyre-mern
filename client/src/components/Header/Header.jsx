@@ -2,24 +2,23 @@
 import style from "./Header.module.css";
 
 // Assets
-import AppIcon from "../../assets/branding/brand-dark.svg";
+import Brand from "../../assets/branding/brand-dark.svg";
+import ProfileIcon from "../../assets/shapes/profile.svg";
 
-export const Header = ({ userName, userPhoto }) => {
+export const Header = () => {
   return (
     <header>
-      <div className={style["app-icon"]}>
-        <img src={AppIcon} alt="Notefyre app icon" />
+      <div className={style["brand-section"]}>
+        <img src={Brand} alt="Notefyre brand icon" />
       </div>
-      <div className={style["avatar-container"]}>
-        <div>O</div>
-        {userName ? (
-          <div className="profile">
-            <p>{userName}</p>
-            <p>{userPhoto}</p>
-          </div>
-        ) : (
-          <p>You&apos;re not logged in</p>
-        )}
+      <div className={style["account-section"]}>
+        <div>
+          <img src={ProfileIcon} />
+        </div>
+        <div className={style["credentials"]}>
+          <p>Mike Andrew</p>
+          <p>@fernandesmikee</p>
+        </div>
       </div>
     </header>
   );
