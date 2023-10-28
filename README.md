@@ -8,7 +8,7 @@ A full-stack web application implemented using MERN (Mongo, Express, React, Node
 
 1. Make use of css resets
 2. You can include basic typographic styles: line-height and default font size in the css reset
-3.
+3. ```<section>``` vs ```<article>```. ```<section>``` is like ```<div>``` but more meaningful as it can be used to wrap related elements altogether while ```<article>``` is used for independent elements. Independent elements are contents where it can still make sense if being separated from other elements.
 
 
 ### DATA HANDLING

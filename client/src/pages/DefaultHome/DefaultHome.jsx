@@ -1,5 +1,13 @@
+// Components
+import HomeTitle from "../../components/HomeTitle/HomeTitle";
+
 const DefaultHome = () => {
-  return <div>DefaultHome</div>;
+  return (
+    <section>
+      <HomeTitle />
+      <div></div>
+    </section>
+  );
 };
 
 export default DefaultHome;

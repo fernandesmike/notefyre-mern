@@ -13,6 +13,12 @@
   --sec-txt-op: 0.85;
 }
 
+.heading-small {
+  font-size: 1.375rem;
+  font-weight: 500;
+  color: var(--main-txt);
+}
+
 .prm-text {
   font-size: 1.625rem;
   font-weight: 500;
