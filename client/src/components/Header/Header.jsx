@@ -16,8 +16,8 @@ export const Header = () => {
           <img src={ProfileIcon} />
         </div>
         <div className={style["credentials"]}>
-          <p>Mike Andrew</p>
-          <p>@fernandesmikee</p>
+          <p className="body-text">Mike Andrew</p>
+          <p className="secondary-text">@fernandesmikee</p>
         </div>
       </div>
     </header>
