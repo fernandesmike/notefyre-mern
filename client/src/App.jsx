@@ -9,6 +9,7 @@ import NoteDetails from "./pages/NoteDetails/NoteDetails";
 import Signin from "./pages/Signin/Signin";
 import Register from "./pages/Register/Register";
 import DefaultHome from "./pages/DefaultHome/DefaultHome";
+import HomeWithNotes from "./pages/HomeWithNotes/HomeWithNotes";
 
 // Main styling
 import "../styles/main.css";
@@ -24,6 +25,7 @@ function App() {
         <Route element={<PageLayout />}>
           <Route path="/home" element={<Home />} />
           <Route path="/default" element={<DefaultHome />} />
+          <Route path="/complete" element={<HomeWithNotes />} />
           <Route path="/new" element={<NewNote />} />
           <Route path="/:id" element={<NoteDetails />} />
           <Route path="/me" element={<Profile />} />

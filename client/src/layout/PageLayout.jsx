@@ -7,7 +7,6 @@ const PageLayout = () => {
   return (
     <main>
       <Header />
-      <h1>Test content!!</h1>
       <Outlet />
     </main>
   );
