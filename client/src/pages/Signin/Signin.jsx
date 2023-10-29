@@ -19,7 +19,7 @@ const Signin = () => {
       />
       <div className={style["cta-container"]}>
         <FacebookAuth procedure={"Continue"} />
-        <Link className={style["link"]} to="/home">
+        <Link className={style["link"]} to="/default">
           Nah, skip for now
         </Link>
         <Link className={style["cta-register"]} to="/register">

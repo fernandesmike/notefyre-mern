@@ -10,6 +10,7 @@
   min-width: 628px;
   max-width: 628px;
   position: relative;
+  color: var(--main-txt);
 }
 
 .text-wrapper {
