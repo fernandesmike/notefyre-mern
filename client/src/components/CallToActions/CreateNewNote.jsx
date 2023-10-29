@@ -9,7 +9,7 @@ import RightDoodle from "../../assets/shapes/doodle-right.svg";
 import ArrowHighlight from "../../assets/shapes/arrow.svg";
 import HighlightText from "../../assets/shapes/arrow-text.svg";
 
-const CreateNewNote = () => {
+const CreateNewNote = ({ showArrow }) => {
   return (
     <article className={style["main-wrapper"]}>
       <section className={style["text-wrapper"]}>
@@ -26,7 +26,7 @@ const CreateNewNote = () => {
       <div>
         <img src={RightArrow} />
       </div>
- 
+
       {/* Highlights */}
       <div className={style["doodle-left"]}>
         <img src={LeftDoodle} />
@@ -34,12 +34,15 @@ const CreateNewNote = () => {
       <div className={style["doodle-right"]}>
         <img src={RightDoodle} />
       </div>
-      <div className={style["arrow-highlight"]}>
-        <img src={ArrowHighlight} />
-        <div>
-          <img src={HighlightText} />
+
+      {showArrow ? (
+        <div className={style["arrow-highlight"]}>
+          <img src={ArrowHighlight} />
+          <div>
+            <img src={HighlightText} />
+          </div>
         </div>
-      </div>
+      ) : null}
     </article>
   );
 };

@@ -12,7 +12,7 @@ const DefaultHome = () => {
     <section className={style["main-wrapper"]}>
       <HomeTitle />
       <Link to="/">
-        <CreateNewNote />
+        <CreateNewNote showArrow={true} />
       </Link>
     </section>
   );
