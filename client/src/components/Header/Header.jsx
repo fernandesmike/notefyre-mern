@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 // Styling
 import style from "./Header.module.css";
 
@@ -8,9 +10,12 @@ import ProfileIcon from "../../assets/shapes/profile.svg";
 export const Header = () => {
   return (
     <header>
-      <div className={style["brand-section"]}>
-        <img src={Brand} alt="Notefyre brand icon" />
-      </div>
+      <Link className={style["link"]} to="/default">
+        <div className={style["brand-section"]}>
+          <img src={Brand} alt="Notefyre brand icon" />
+        </div>
+      </Link>
+
       <div className={style["account-section"]}>
         <div>
           <img src={ProfileIcon} />
