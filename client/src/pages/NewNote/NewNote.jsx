@@ -19,7 +19,7 @@ const NewNote = () => {
         noteObj
       );
 
-      setError(null); 
+      setError(null);
       setTitle("");
       setFrom("");
       setContents("");
