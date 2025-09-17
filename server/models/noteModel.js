@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 // Create a schema
-const noteSchema = new Schema(
+const noteSchema = new Schema (
   {
     title: { type: String, required: true },
     from: { type: String, required: false },
