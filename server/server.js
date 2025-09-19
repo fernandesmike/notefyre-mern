@@ -1,7 +1,8 @@
 // Module imports
 require("dotenv").config();
-const express = require("express");
 const routes = require("./routes/noteRoutes");
+const mongoose = require("mongoose");
+const express = require("express");
 const CORS = require("cors");
 const app = express();
 
@@ -23,7 +24,18 @@ app.use(CORS());
 // If a path was specified (as first argument), it appends the all the routes unto that path or a route that matches it. Otherwise, it consumes all the routes inside. e.g. app.use("/user", route), all the routes inside route will append to the "/user" path, which results to "/user/routeInside"
 app.use(process.env.BASE_API_URL, routes);
 
-app.listen(PORT, () => {
-  console.log(`Listening to port ${PORT}`);
-  console.log(`Base URL: ${process.env.BASE_API_URL}`);
-});
+mongoose
+  .connect(process.env.MONGO_DB_URI)
+  .then(() => {
+    
+    // Only listen server requests when connection to database is succesfull
+    console.log("Connection to database established!");
+    app.listen(PORT, () => {
+      console.log(`Listening to port ${PORT}`);
+      console.log(`Base URL: ${process.env.BASE_API_URL}`);
+    }); 
+  })
+  .catch((err) => {
+    console.log("Connection failed!");
+    console.log(err);
+  });
