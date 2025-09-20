@@ -24,10 +24,10 @@ router.get("/:id", (req, res) => {
 // Add a new note handler
 router.post("/", (req, res) => {
   res.json({
-    msg: "You are posting a new note!!",
+    msg: "You are adding a specific note!",
     version: "V1",
     year: "2025",
-    route: "/ but POST method",
+    route: "/:id",
   });
 });
 
