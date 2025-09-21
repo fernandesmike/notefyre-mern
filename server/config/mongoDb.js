@@ -8,6 +8,7 @@ const connectDb = (startApi) => {
     .then(() => {
       // Only listen server requests when connection to database is succesfull
       console.log("Connection to database established!");
+      console.log(`Connected to: ${mongoose.connection.db.databaseName}`);
       startApi();
     })
     .catch((err) => {

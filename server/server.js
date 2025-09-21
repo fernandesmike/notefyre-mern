@@ -2,6 +2,7 @@
 require("dotenv").config();
 const routes = require("./routes/noteRoutes");
 const connectDb = require("./config/mongoDb");
+const logger = require("./middleware/logger");
 const express = require("express");
 const CORS = require("cors");
 const PORT = process.env.PORT;
@@ -12,19 +13,17 @@ const app = express();
 app.use(express.json());
 app.use(CORS());
 
+// Middleware for logging each requests
+app.use(logger);
+
 // Mount or consume all the routes inside
 // If a path was specified (as first argument), it appends the all the routes unto that path or a route that matches it. Otherwise, it consumes all the routes inside. e.g. app.use("/user", route), all the routes inside route will append to the "/user" path, which results to "/user/routeInside"
 app.use(process.env.BASE_API_URL, routes);
 
-// Middleware for logging each requests
-app.use((req, res, next) => {
-  console.log(req.path, req.method);
-  next();
-});
-
 // Connect to the databse and start the server
 connectDb(() => {
   app.listen(PORT, () => {
+    console.log("================");
     console.log(`Listening to port ${PORT}`);
     console.log(`Base URL: ${process.env.BASE_API_URL}`);
   });
