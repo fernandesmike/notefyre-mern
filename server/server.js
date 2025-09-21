@@ -23,6 +23,7 @@ app.use(process.env.BASE_API_URL, routes);
 // Connect to the databse and start the server
 connectDb(() => {
   app.listen(PORT, () => {
+    console.log("================");
     console.log(`Listening to port ${PORT}`);
     console.log(`Base URL: ${process.env.BASE_API_URL}`);
   });

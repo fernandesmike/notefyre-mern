@@ -1,13 +1,15 @@
 const Note = require("../models/Note");
 
-const getAllNotes = (req, res) => {
-  res.json({
-    msg: "Retrieving all notes!",
-    version: "V1",
-    year: "2025",
-    route: "/",
-    handler: "getAllNotes",
-  });
+const getAllNotes = async (req, res) => {
+  try {
+    //  Sorting, -1 for Descending and 1 for Ascending
+    // Returns a Query Object (from mongoose)
+    const allNotes = await Note.find().sort({ createdAt: -1 });
+    res.status(200).json({ message: "All notes retrieved!", allNotes });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+    console.log(error);
+  }
 };
 
 const getSingleNote = (req, res) => {
