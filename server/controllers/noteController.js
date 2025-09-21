@@ -91,14 +91,32 @@ const replaceNote = (req, res) => {
   });
 };
 
-const deleteSingleNote = (req, res) => {
-  res.json({
-    msg: "Deleting a single note!",
-    version: "V1",
-    year: "2025",
-    route: "/:id",
-    handler: "deleteSingleNote",
-  });
+const deleteSingleNote = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(404).json({
+        message: "Invalid ID or not found. Please check the provided ID",
+      });
+    }
+
+    const deletedNote = await Note.findByIdAndDelete({ _id: id }).lean();
+
+    if (!deletedNote) {
+      return res.status(404).json({
+        message: "Cannot find the specific note or was deleted succesfully",
+      });
+    }
+
+    res.status(200).json({
+      message: `Note: ${deletedNote.title} was deleted!`,
+      deletedNote,
+    });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+    console.log(error);
+  }
 };
 
 module.exports = {
