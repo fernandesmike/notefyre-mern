@@ -12,15 +12,15 @@ const app = express();
 app.use(express.json());
 app.use(CORS());
 
-// Mount or consume all the routes inside
-// If a path was specified (as first argument), it appends the all the routes unto that path or a route that matches it. Otherwise, it consumes all the routes inside. e.g. app.use("/user", route), all the routes inside route will append to the "/user" path, which results to "/user/routeInside"
-app.use(process.env.BASE_API_URL, routes);
-
 // Middleware for logging each requests
 app.use((req, res, next) => {
   console.log(req.path, req.method);
   next();
 });
+
+// Mount or consume all the routes inside
+// If a path was specified (as first argument), it appends the all the routes unto that path or a route that matches it. Otherwise, it consumes all the routes inside. e.g. app.use("/user", route), all the routes inside route will append to the "/user" path, which results to "/user/routeInside"
+app.use(process.env.BASE_API_URL, routes);
 
 // Connect to the databse and start the server
 connectDb(() => {
