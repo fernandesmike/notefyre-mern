@@ -1,0 +1,19 @@
+.cta-container {
+  text-align: center;
+  margin-top: 48px;
+}
+
+
+
+.cta-container p {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.cta-signin {
+  color: var(--brand-accent);
+}

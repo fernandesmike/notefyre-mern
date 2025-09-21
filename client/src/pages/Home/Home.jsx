@@ -4,9 +4,6 @@ import axios from "axios";
 import NoteCard from "../../components/NoteCard/NoteCard";
 import NoNotes from "../../components/EmptyState/NoNotes";
 
-// Styling
-import "../../../styles/Home.css";
-
 const Home = () => {
   const [notes, setNotes] = useState();
 
@@ -27,23 +24,9 @@ const Home = () => {
 
   return (
     <div>
-      {/* Greetings */}
       <section>
         <div>
-          <h1>Good day, Mike!</h1>
-          <p>Learn something new everyday and take careful notes</p>
-        </div>
-      </section>
-
-      <section>
-        <div>
-          {/* LEARNING:
-          
-              When async operationsa involved, always check for the state contents first
-              before accessing it. As JSX code are executed immediately while you
-              are still trying to display the async data!
-          */}
-
+          {/* Check for the contents first */}
           {notes ? (
             notes.map((note) => <NoteCard key={note._id} note={note} />)
           ) : (

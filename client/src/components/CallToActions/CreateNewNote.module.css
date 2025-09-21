@@ -1,0 +1,52 @@
+.main-wrapper {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 24px;
+  justify-content: space-between;
+  background-color: var(--card-bg);
+  border: 3px solid var(--card-border);
+  border-radius: 16px;
+  min-width: 628px;
+  max-width: 628px;
+  position: relative;
+  color: var(--main-txt);
+}
+
+.text-wrapper {
+  margin-top: 0px;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.text-wrapper h4 {
+  width: 100%;
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.doodle-left {
+  position: absolute;
+  top: 15%;
+  left: -55px;
+}
+
+.doodle-right {
+  position: absolute;
+  top: 15%;
+  right: -55px;
+}
+
+.arrow-highlight {
+  position: absolute;
+  bottom: -75%;
+  right: 0px;
+}
+
+.arrow-highlight div {
+  position: absolute;
+  right: -110px;
+  top: 10px;
+}
