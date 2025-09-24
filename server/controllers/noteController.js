@@ -2,15 +2,15 @@ require("mongoose");
 const { default: mongoose } = require("mongoose");
 const Note = require("../models/Note");
 
-const getAllNotes = async (req, res) => {
+const getNotes = async (req, res) => {
   try {
     //  Sorting, -1 for Descending and 1 for Ascending
     //  Using lean() will only return plain JS Object not a Mongoose Document
-    const allNotes = await Note.find().sort({ createdAt: -1 }).lean();
+    const notes = await Note.find().sort({ createdAt: -1 }).lean();
     res.status(200).json({
       message: "All notes retrieved!",
-      count: allNotes.length,
-      allNotes,
+      count: notes.length,
+      notes,
     });
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -18,7 +18,7 @@ const getAllNotes = async (req, res) => {
   }
 };
 
-const getSingleNote = async (req, res) => {
+const getNote = async (req, res) => {
   try {
     const { id } = req.params;
 
@@ -29,18 +29,18 @@ const getSingleNote = async (req, res) => {
         .json({ message: "Invalid ID. Please check the provided ID" });
     }
 
-    const singleNote = await Note.findById(id).lean();
+    const note = await Note.findById(id).lean();
 
     // If there is no such note, then return 404
-    if (!singleNote) {
+    if (!note) {
       return res
         .status(404)
         .json({ message: "Cannot find the note with the specified ID" });
     }
 
     res.status(200).json({
-      message: `Note: ${singleNote.title} retrieved.`,
-      singleNote,
+      message: `Note: ${note.title} retrieved.`,
+      note,
     });
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -48,7 +48,7 @@ const getSingleNote = async (req, res) => {
   }
 };
 
-const addNote = async (req, res) => {
+const createNote = async (req, res) => {
   try {
     // Deconstruct contents from request body to avoid using "this" and unneeded variable declaration
     const { title, from, contents } = req.body;
@@ -81,7 +81,7 @@ const updateNote = (req, res) => {
   });
 };
 
-const replaceNote = (req, res) => {
+const putNote = (req, res) => {
   res.json({
     msg: "Replacing an entire note!",
     version: "V1",
@@ -91,7 +91,7 @@ const replaceNote = (req, res) => {
   });
 };
 
-const deleteSingleNote = async (req, res) => {
+const deleteNote = async (req, res) => {
   try {
     const { id } = req.params;
 
@@ -120,10 +120,10 @@ const deleteSingleNote = async (req, res) => {
 };
 
 module.exports = {
-  getAllNotes,
-  getSingleNote,
-  addNote,
+  getNotes,
+  getNote,
+  createNote,
   updateNote,
-  replaceNote,
-  deleteSingleNote,
+  putNote,
+  deleteNote,
 };
