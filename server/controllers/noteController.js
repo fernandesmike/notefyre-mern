@@ -71,9 +71,12 @@ const createNote = async (req, res) => {
   }
 };
 
-const updateNote = (req, res) => {
+const updateNote = async (req, res) => {
   try {
     const { id } = req.params;
+
+    // Whitelisting the data is always a good practice
+    const { title, from, contents } = req.body;
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
       return res.status(404).json({
@@ -81,21 +84,25 @@ const updateNote = (req, res) => {
       });
     }
 
-    const updatedNote = await Note.findOneAndUpdate({ _id: id}, );
+    const updatedNote = await Note.findByIdAndUpdate(
+      { _id: id },
+      { title, from, contents },
+      {
+        new: true,
+        runValidators: true,
+      }
+    );
 
+    if (!updatedNote) {
+      return res
+        .status(404)
+        .json({ message: "Cannot update the note with the specified ID" });
+    }
+
+    res.status(200).json(updatedNote);
   } catch (error) {
-    res.status.(400).json({ error: error.message });
+    res.status(400).json({ error: error.message });
   }
-};
-
-const putNote = (req, res) => {
-  res.json({
-    msg: "Replacing an entire note!",
-    version: "V1",
-    year: "2025",
-    route: "/:id",
-    handler: "replaceNote",
-  });
 };
 
 const deleteNote = async (req, res) => {
@@ -131,6 +138,5 @@ module.exports = {
   getNote,
   createNote,
   updateNote,
-  putNote,
   deleteNote,
 };

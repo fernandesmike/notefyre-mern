@@ -2,7 +2,6 @@ const {
   getNote,
   getNotes,
   createNote,
-  putNote,
   updateNote,
   deleteNote,
 } = require("../controllers/noteController");
@@ -17,9 +16,6 @@ router.get("/:id", getNote);
 
 // Add a new note handler
 router.post("/", createNote);
-
-// Replace an existing note handler
-router.put("/:id", putNote);
 
 // Update an existing note handler
 router.patch("/:id", updateNote);
