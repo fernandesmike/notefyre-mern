@@ -72,13 +72,20 @@ const createNote = async (req, res) => {
 };
 
 const updateNote = (req, res) => {
-  res.json({
-    msg: "Updating a single note!",
-    version: "V1",
-    year: "2025",
-    route: "/:id",
-    handler: "updateNote",
-  });
+  try {
+    const { id } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(404).json({
+        message: "Invalid ID or not found. Please check the provided ID",
+      });
+    }
+
+    const updatedNote = await Note.findOneAndUpdate({ _id: id}, );
+
+  } catch (error) {
+    res.status.(400).json({ error: error.message });
+  }
 };
 
 const putNote = (req, res) => {
