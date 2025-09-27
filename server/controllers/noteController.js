@@ -2,6 +2,8 @@ require("mongoose");
 const { default: mongoose } = require("mongoose");
 const Note = require("../models/Note");
 
+// TODO: Refactor to create a modular middlware for isValid(id) checker
+
 const getNotes = async (req, res) => {
   try {
     //  Sorting, -1 for Descending and 1 for Ascending

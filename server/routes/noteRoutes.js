@@ -7,21 +7,22 @@ const {
 } = require("../controllers/noteController");
 const express = require("express");
 const router = express.Router();
+require("dotenv").config();
 
 // Get all notes handler
-router.get("/", getNotes);
+router.get(process.env.API_NO_ID_ENDPOINT, getNotes);
 
 // Get a single note handler
-router.get("/:id", getNote);
+router.get(process.env.API_ID_ENDPOINT, getNote);
 
 // Add a new note handler
-router.post("/", createNote);
+router.post(process.env.API_NO_ID_ENDPOINT, createNote);
 
 // Update an existing note handler
-router.patch("/:id", updateNote);
+router.patch(process.env.API_ID_ENDPOINT, updateNote);
 
 // Delete an existing note handler
-router.delete("/:id", deleteNote);
+router.delete(process.env.API_ID_ENDPOINT, deleteNote);
 
 // Export the router, so that it can be mounted on the main server that has the express() instance
 // No need to desctructure because you are exporting only one Object
