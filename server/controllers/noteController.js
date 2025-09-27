@@ -2,7 +2,7 @@ require("mongoose");
 const { default: mongoose } = require("mongoose");
 const Note = require("../models/Note");
 
-// TODO: Refactor to create a modular middlware for isValid(id) checker
+// TODO: Refactor to create a modular middleware for isValid(id) checker
 
 const getNotes = async (req, res) => {
   try {
@@ -90,7 +90,9 @@ const updateNote = async (req, res) => {
       { _id: id },
       { title, from, contents },
       {
+        // Returns the updated object
         new: true,
+        // Validates the data against the defined schema
         runValidators: true,
       }
     );
