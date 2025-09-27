@@ -2,15 +2,17 @@ require("mongoose");
 const { default: mongoose } = require("mongoose");
 const Note = require("../models/Note");
 
-const getAllNotes = async (req, res) => {
+// TODO: Refactor to create a modular middleware for isValid(id) checker
+
+const getNotes = async (req, res) => {
   try {
     //  Sorting, -1 for Descending and 1 for Ascending
     //  Using lean() will only return plain JS Object not a Mongoose Document
-    const allNotes = await Note.find().sort({ createdAt: -1 }).lean();
+    const notes = await Note.find().sort({ createdAt: -1 }).lean();
     res.status(200).json({
       message: "All notes retrieved!",
-      count: allNotes.length,
-      allNotes,
+      count: notes.length,
+      notes,
     });
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -18,7 +20,7 @@ const getAllNotes = async (req, res) => {
   }
 };
 
-const getSingleNote = async (req, res) => {
+const getNote = async (req, res) => {
   try {
     const { id } = req.params;
 
@@ -29,18 +31,18 @@ const getSingleNote = async (req, res) => {
         .json({ message: "Invalid ID. Please check the provided ID" });
     }
 
-    const singleNote = await Note.findById(id).lean();
+    const note = await Note.findById(id).lean();
 
     // If there is no such note, then return 404
-    if (!singleNote) {
+    if (!note) {
       return res
         .status(404)
         .json({ message: "Cannot find the note with the specified ID" });
     }
 
     res.status(200).json({
-      message: `Note: ${singleNote.title} retrieved.`,
-      singleNote,
+      message: `Note: ${note.title} retrieved.`,
+      note,
     });
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -48,7 +50,7 @@ const getSingleNote = async (req, res) => {
   }
 };
 
-const addNote = async (req, res) => {
+const createNote = async (req, res) => {
   try {
     // Deconstruct contents from request body to avoid using "this" and unneeded variable declaration
     const { title, from, contents } = req.body;
@@ -71,41 +73,74 @@ const addNote = async (req, res) => {
   }
 };
 
-const updateNote = (req, res) => {
-  res.json({
-    msg: "Updating a single note!",
-    version: "V1",
-    year: "2025",
-    route: "/:id",
-    handler: "updateNote",
-  });
+const updateNote = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    // Whitelisting the data is always a good practice
+    const { title, from, contents } = req.body;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(404).json({
+        message: "Invalid ID or not found. Please check the provided ID",
+      });
+    }
+
+    const updatedNote = await Note.findByIdAndUpdate(
+      { _id: id },
+      { title, from, contents },
+      {
+        // Returns the updated object
+        new: true,
+        // Validates the data against the defined schema
+        runValidators: true,
+      }
+    );
+
+    if (!updatedNote) {
+      return res
+        .status(404)
+        .json({ message: "Cannot update the note with the specified ID" });
+    }
+
+    res.status(200).json(updatedNote);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 };
 
-const replaceNote = (req, res) => {
-  res.json({
-    msg: "Replacing an entire note!",
-    version: "V1",
-    year: "2025",
-    route: "/:id",
-    handler: "replaceNote",
-  });
-};
+const deleteNote = async (req, res) => {
+  try {
+    const { id } = req.params;
 
-const deleteSingleNote = (req, res) => {
-  res.json({
-    msg: "Deleting a single note!",
-    version: "V1",
-    year: "2025",
-    route: "/:id",
-    handler: "deleteSingleNote",
-  });
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(404).json({
+        message: "Invalid ID or not found. Please check the provided ID",
+      });
+    }
+
+    const deletedNote = await Note.findByIdAndDelete({ _id: id }).lean();
+
+    if (!deletedNote) {
+      return res.status(404).json({
+        message: "Cannot find the specific note or was deleted succesfully",
+      });
+    }
+
+    res.status(200).json({
+      message: `Note: ${deletedNote.title} was deleted!`,
+      deletedNote,
+    });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+    console.log(error);
+  }
 };
 
 module.exports = {
-  getAllNotes,
-  getSingleNote,
-  addNote,
+  getNotes,
+  getNote,
+  createNote,
   updateNote,
-  replaceNote,
-  deleteSingleNote,
+  deleteNote,
 };
