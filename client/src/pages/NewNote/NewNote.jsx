@@ -3,6 +3,7 @@ import { useState } from "react";
 import Error from "../../components/Error/Error";
 
 const NewNote = () => {
+  // TODO: Try creating an Note Object instead of allocating each contents
   const [title, setTitle] = useState("");
   const [from, setFrom] = useState("");
   const [contents, setContents] = useState("");

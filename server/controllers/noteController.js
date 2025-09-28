@@ -3,6 +3,8 @@ const { default: mongoose } = require("mongoose");
 const Note = require("../models/Note");
 
 // TODO: Refactor to create a modular middleware for isValid(id) checker
+// TODO: Create a unified error management
+// TODO: Consider data validations
 
 const getNotes = async (req, res) => {
   try {

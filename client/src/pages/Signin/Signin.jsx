@@ -13,7 +13,7 @@ const Signin = () => {
       <Title
         title={"All your notes in one virtual place"}
         subtitle={
-          "A simple and minimalistic note taking companion to help you keep andpreserve your everyday learnings."
+          "A simple and minimalistic note taking companion to help you keep and preserve your everyday learnings."
         }
         showHighlight={true}
       />
