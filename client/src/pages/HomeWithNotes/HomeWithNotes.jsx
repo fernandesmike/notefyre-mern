@@ -1,8 +1,8 @@
-// Components
+import style from "./HomeWithNotes.module.css";
 
 const HomeWithNotes = () => {
   return (
-    <article>
+    <article className={style["main-wrapper"]}>
       <section>
         <h4>Focus on the things you&apos;ve learned!</h4>
         <p>
@@ -14,6 +14,7 @@ const HomeWithNotes = () => {
 
       <section>
         <p>Your notes</p>
+        <p>List of notes goes here...</p>
       </section>
     </article>
   );
