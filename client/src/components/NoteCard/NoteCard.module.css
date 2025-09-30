@@ -1,14 +1,43 @@
 .note-wrapper {
   background-image: url("../../assets//shapes/notecard.svg");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   padding: 32px;
   width: 411px;
-  height: 175px;
+  height: 185px;
 }
 
 .note-card {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 16px;
+  position: relative;
+}
+
+.icon-container {
+  position: absolute;
+  top: 0px;
+  right: 0;
+}
+
+.icon-container:hover {
+  cursor: pointer;
+}
+
+.icon-container img {
+  fill: var(--brand-accent);
+}
+
+.tags-container {
+  display: flex;
+  gap: 16px;
+  text-transform: uppercase;
+}
+
+.tags-container p {
+  border-radius: 4px;
+  width: fit-content;
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #203642;
 }

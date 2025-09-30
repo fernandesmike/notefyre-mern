@@ -24,9 +24,9 @@ const HomeWithNotes = () => {
       <section className={style["notes-container"]}>
         <p className="body-text">Your notes</p>
         <div className={style["notecards-container"]}>
-          <NoteCard />
-          <NoteCard />
-          <NoteCard />
+          <NoteCard title="This goes hard" />
+          <NoteCard title="Etits na gawa sa siopao" />
+          <NoteCard title="Dagang naka jacket" />
         </div>
       </section>
     </article>

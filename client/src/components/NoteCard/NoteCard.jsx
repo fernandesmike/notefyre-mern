@@ -3,13 +3,19 @@ import style from "./NoteCard.module.css";
 // Assets
 import DragIcon from "../../assets/icons/drag.svg";
 
-const NoteCard = () => {
+const NoteCard = ({ title }) => {
   return (
     <article className={style["note-wrapper"]}>
       <div className={style["note-card"]}>
-        <img src={DragIcon} />
-        <p className={style["note-tag"]}>Tag</p>
-        <h4 className={style["note-title"]}>Title goes here</h4>
+        <div className={style["icon-container"]}>
+          <img src={DragIcon} />
+        </div>
+        <div className={style["tags-container"]}>
+          <p className="secondary-text">EDUCATION</p>
+          <p className="secondary-text">OFFLINE</p>
+          <p className="secondary-text">+3</p>
+        </div>
+        <h4 className="heading-small">{title}</h4>
       </div>
     </article>
   );
