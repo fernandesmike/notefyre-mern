@@ -13,6 +13,8 @@
   --sec-txt-op: 0.85;
 }
 
+/* Not palced in :root because a single font-style has multiple properties */
+
 .heading-small {
   font-size: 1.375rem;
   font-weight: 500;

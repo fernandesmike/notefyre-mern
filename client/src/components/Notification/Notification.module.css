@@ -1,0 +1,15 @@
+.notif-container {
+  background-color: var(--brand-accent);
+  width: 100%;
+  text-align: center;
+  padding: 16px 0;
+}
+
+.notif-container p {
+  color: var(--page-bg);
+}
+
+.notif-container p span {
+  text-decoration: underline;
+  font-weight: 500;
+}

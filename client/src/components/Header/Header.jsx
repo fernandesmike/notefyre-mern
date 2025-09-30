@@ -5,7 +5,7 @@ import style from "./Header.module.css";
 import Brand from "../../assets/branding/brand-dark.svg";
 import ProfileIcon from "../../assets/shapes/profile.svg";
 
-export const Header = () => {
+const Header = () => {
   return (
     <header>
       <div className={style["brand-section"]}>
@@ -23,3 +23,5 @@ export const Header = () => {
     </header>
   );
 };
+
+export default Header;
