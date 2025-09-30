@@ -1,0 +1,14 @@
+.note-wrapper {
+  background-image: url("../../assets//shapes/notecard.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 32px;
+  width: 411px;
+  height: 175px;
+}
+
+.note-card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}

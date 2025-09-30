@@ -13,3 +13,8 @@
   text-decoration: underline;
   font-weight: 500;
 }
+
+.notif-container p span:hover {
+  text-decoration: none;
+  cursor: pointer;
+}

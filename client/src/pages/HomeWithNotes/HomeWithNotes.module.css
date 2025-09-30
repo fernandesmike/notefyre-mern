@@ -1,12 +1,52 @@
 .main-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
-.main-wrapper section {
-  border: 2px solid green;
+.header-container {
+  width: fit-content;
   text-align: left;
-  margin: 0;
+  display: inline-block;
+  margin-top: 32px;
 }
 
-.main-wrapper section  {
-    
+.header-container p {
+  margin: 16px 0 24px 0;
+}
+
+.add-btn {
+  font-weight: 700;
+  color: var(--brand-accent);
+}
+
+.highlight {
+  position: relative;
+}
+
+.highlight img {
+  position: absolute;
+  left: -25px;
+  bottom: -10px;
+}
+
+/* Notecards section */
+.notes-container {
+  margin: 0;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.notes-container p {
+  display: inline-block;
+}
+
+.notecards-container {
+  width: 100%;
+  gap: 3.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }

@@ -1,23 +1,15 @@
-const NoteCard = ({ note }) => {
+import style from "./NoteCard.module.css";
+
+// Assets
+import DragIcon from "../../assets/icons/drag.svg";
+
+const NoteCard = () => {
   return (
-    <article>
-      <div>
-        {/* Date */}
-        <div>
-          <p>{note.createdAt}</p>
-        </div>
-
-        {/* Title */}
-        <div>{note.title}</div>
-
-        {/* From */}
-        <div>
-          <p>{note.from}</p>
-        </div>
-
-        <div>
-          <p>{note.contents}</p>
-        </div>
+    <article className={style["note-wrapper"]}>
+      <div className={style["note-card"]}>
+        <img src={DragIcon} />
+        <p className={style["note-tag"]}>Tag</p>
+        <h4 className={style["note-title"]}>Title goes here</h4>
       </div>
     </article>
   );
