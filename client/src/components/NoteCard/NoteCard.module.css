@@ -5,6 +5,15 @@
   padding: 32px;
   width: 411px;
   height: 185px;
+  transition: color 0.15s ease-in-out, transform 0.15s ease-in-out;
+}
+
+.note-wrapper:hover,
+.note-wrapper:hover h4 {
+  cursor: pointer;
+  color: var(--brand-accent);
+  transform: scale(1.03);
+  transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
 
 .note-card {
