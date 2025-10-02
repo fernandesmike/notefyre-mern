@@ -6,6 +6,7 @@ import DragIcon from "../../assets/icons/drag.svg";
 const NoteCard = ({ title }) => {
   return (
     <article className={style["note-wrapper"]}>
+      {/* TODO: This is supposed to be the custom shape for NoteCard */}
       {/* <svg
         className={style["notecard-svg"]}
         width="411"
