@@ -7,7 +7,7 @@ import Notification from "../components/Notification/Notification";
 const PageLayout = () => {
   return (
     <main>
-      {/* TODO: Only show this is the client is in guest mode */}
+      {/* TODO: Only show this if the client is in guest mode */}
       <Notification />
       <div className="body-wrapper">
         <Header />

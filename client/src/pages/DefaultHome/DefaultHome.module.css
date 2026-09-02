@@ -3,3 +3,22 @@
   flex-direction: column;
   gap: 64px;
 }
+
+.wrapper {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.wrapper img {
+  height: 90px;
+}
+
+.text-wrapper {
+  margin-top: 0px;
+}
+
+.text-wrapper h1 {
+  width: 100%;
+}
+
