@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 
 // Pages
 import Home from "./pages/Home/Home";
@@ -23,10 +23,13 @@ function App() {
   return (
     <>
       <Routes>
+        {/* Skip the empty endpoint and bounce the user directly to login screen : For semantic purposes */}
+        <Route path="/" element={<Navigate to={"/signin"} />} />
+
         {/* AuthLayout route wraps all authentication related paths */}
         <Route element={<AuthLayout />}>
-          <Route path="/" element={<Signin />} />
-          <Route path="/signup" element={<Register />} />
+          <Route path="/signin" element={<Signin />} />
+          <Route path="/register" element={<Register />} />
         </Route>
 
         {/* Pagelayout route wraps all authenticated (logged in users) & protected paths */}
