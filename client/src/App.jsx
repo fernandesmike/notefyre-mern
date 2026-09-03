@@ -7,11 +7,12 @@ import NewNote from "./pages/NewNote/NewNote";
 import NoteDetails from "./pages/NoteDetails/NoteDetails";
 import Signin from "./pages/Signin/Signin";
 import Register from "./pages/Register/Register";
-import DefaultHome from "./pages/DefaultHome/DefaultHome";
+import EmptyNotes from "./components/EmptyState/EmptyNotes";
 import HomeWithNotes from "./pages/HomeWithNotes/HomeWithNotes";
 
 // Layouts
-import PageLayout from "./layout/PageLayout";
+import GuestLayout from "./layout/GuestLayout";
+// import UserLayout from "./layout/UserLayout";
 import AuthLayout from "./layout/AuthLayout";
 
 // Main styling
@@ -32,15 +33,17 @@ function App() {
           <Route path="/register" element={<Register />} />
         </Route>
 
-        {/* Pagelayout route wraps all authenticated (logged in users) & protected paths */}
-        <Route element={<PageLayout />}>
-          <Route path="/home" element={<Home />} />
-          <Route path="/default" element={<DefaultHome />} />
-          <Route path="/complete" element={<HomeWithNotes />} />
-          <Route path="/new" element={<NewNote />} />
-          <Route path="/:id" element={<NoteDetails />} />
-          <Route path="/me" element={<Profile />} />
+        {/* This layout wraps all unauthenticated routes */}
+        <Route path="/guest" element={<GuestLayout />}>
+          <Route index element={<Navigate to="home" />} />
+          <Route path="home" element={<Home />} />
+          <Route path="complete" element={<HomeWithNotes />} />
+          <Route path="new" element={<NewNote />} />
+          <Route path=":id" element={<NoteDetails />} />
+          <Route path="profile" element={<Profile />} />
         </Route>
+
+        {/* This layout wraps all protected (logged in users) routes */}
       </Routes>
     </>
   );

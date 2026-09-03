@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+// Components
 import NoteCard from "../../components/NoteCard/NoteCard";
-import NoNotes from "../../components/EmptyState/NoNotes";
+import EmptyNotes from "../../components/EmptyState/EmptyNotes";
 
 const Home = () => {
   const [notes, setNotes] = useState();
@@ -30,7 +31,7 @@ const Home = () => {
           {notes ? (
             notes.map((note) => <NoteCard key={note._id} note={note} />)
           ) : (
-            <NoNotes />
+            <EmptyNotes />
           )}
         </div>
       </section>

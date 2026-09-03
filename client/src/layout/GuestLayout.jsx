@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 import Header from "../components/Header/Header";
 import Notification from "../components/Notification/Notification";
 
-const PageLayout = () => {
+const GuestLayout = () => {
   return (
     <main>
       {/* TODO: Only show this if the client is in guest mode */}
@@ -17,4 +17,4 @@ const PageLayout = () => {
   );
 };
 
-export default PageLayout;
+export default GuestLayout;

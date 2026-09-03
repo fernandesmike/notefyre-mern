@@ -18,9 +18,9 @@ const Signin = () => {
         showHighlight={true}
       />
       <div className={style["cta-container"]}>
-        <FacebookAuth procedure={"Continue"} />
-        <Link className={style["link"]} to="/default">
-          Nah, skip for now
+        <FacebookAuth procedure={"Sign in"} />
+        <Link className={style["link"]} to="/guest">
+          Continue as guest
         </Link>
         <Link className={style["cta-register"]} to="/register">
           Don&apos;t have an account? Register here{" "}

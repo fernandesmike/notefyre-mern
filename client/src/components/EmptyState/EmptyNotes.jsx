@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 
 // Assets & Styling
 import BrandIcon from "../../assets/branding/icon-dark.svg";
-import style from "./DefaultHome.module.css";
+import style from "./EmptyNotes.module.css";
 
 // Components
-import CreateNewNote from "../../components/CallToActions/CreateNewNote";
+import CreateNewNote from "../CallToActions/CreateNewNote";
 
-const DefaultHome = () => {
+const EmptyNotes = () => {
   return (
     <section className={style["main-wrapper"]}>
       <article className={style["wrapper"]}>
@@ -27,4 +27,4 @@ const DefaultHome = () => {
   );
 };
 
-export default DefaultHome;
+export default EmptyNotes;
