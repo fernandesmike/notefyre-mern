@@ -20,7 +20,7 @@ const EmptyNotes = () => {
           </p>
         </section>
       </article>
-      <Link to="/">
+      <Link to="new">
         <CreateNewNote showArrow={true} />
       </Link>
     </section>

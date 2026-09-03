@@ -7,8 +7,8 @@ import NewNote from "./pages/NewNote/NewNote";
 import NoteDetails from "./pages/NoteDetails/NoteDetails";
 import Signin from "./pages/Signin/Signin";
 import Register from "./pages/Register/Register";
-import EmptyNotes from "./components/EmptyState/EmptyNotes";
 import HomeWithNotes from "./pages/HomeWithNotes/HomeWithNotes";
+import PageNotFound from "./pages/Error/PageNotFound";
 
 // Layouts
 import GuestLayout from "./layout/GuestLayout";
@@ -35,15 +35,17 @@ function App() {
 
         {/* This layout wraps all unauthenticated routes */}
         <Route path="/guest" element={<GuestLayout />}>
-          <Route index element={<Navigate to="home" />} />
-          <Route path="home" element={<Home />} />
+          <Route index element={<Navigate to="notes" />} />
+          <Route path="notes" element={<Home />} />
+          <Route path="notes/new" element={<NewNote />} />
+          <Route path="notes/:id" element={<NoteDetails />} />
           <Route path="complete" element={<HomeWithNotes />} />
-          <Route path="new" element={<NewNote />} />
-          <Route path=":id" element={<NoteDetails />} />
           <Route path="profile" element={<Profile />} />
         </Route>
 
         {/* This layout wraps all protected (logged in users) routes */}
+
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </>
   );
