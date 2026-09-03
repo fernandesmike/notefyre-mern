@@ -3,7 +3,7 @@ import style from "./NoteCard.module.css";
 // Assets
 import DragIcon from "../../assets/icons/drag.svg";
 
-const NoteCard = ({ title }) => {
+const NoteCard = ({ note }) => {
   return (
     <article className={style["note-wrapper"]}>
       {/* TODO: This is supposed to be the custom shape for NoteCard */}
@@ -33,7 +33,7 @@ const NoteCard = ({ title }) => {
           <p className="secondary-text">OFFLINE</p>
           <p className="secondary-text">+3</p>
         </div>
-        <h4 className="heading-small">{title}</h4>
+        <h4 className="heading-small">{note.title}</h4>
       </div>
     </article>
   );

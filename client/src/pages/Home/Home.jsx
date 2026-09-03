@@ -11,13 +11,13 @@ const Home = () => {
   useEffect(() => {
     try {
       const fetchAllNotes = async () => {
-        const response = await axios.get("http://localhost:4000/api/v1/notes");
+        const response = await axios.get("http://localhost:4000/api/v1/");
         const allNotes = response.data;
-        setNotes(allNotes);
-        console.log(allNotes);
+        setNotes(allNotes.notes);
       };
 
       fetchAllNotes();
+      console.log(notes);
     } catch (error) {
       console.log(error);
     }
