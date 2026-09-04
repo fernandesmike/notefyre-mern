@@ -28,12 +28,16 @@ const NoteCard = ({ note }) => {
         <div className={style["icon-container"]}>
           <img src={DragIcon} />
         </div>
-        <div className={style["tags-container"]}>
+        {/* THESE ARE TAGS, UNCOMMENT IF NEEDED */}
+        {/* <div className={style["tags-container"]}>
           <p className="secondary-text">EDUCATION</p>
           <p className="secondary-text">OFFLINE</p>
           <p className="secondary-text">+3</p>
-        </div>
+        </div> */}
         <h4 className="heading-small">{note.title}</h4>
+        <p className="secondary-text">{note.createdAt}</p>
+        <p className="paragraph">{note.contents}</p>
+        <p className="secondary-text">Created by: {note.from}</p>
       </div>
     </article>
   );

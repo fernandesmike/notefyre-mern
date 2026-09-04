@@ -1,8 +1,12 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Error from "../../components/Error/Error";
 
 const NewNote = () => {
+  // For redirecting users
+  const redirect = useNavigate();
+
   // TODO: Try creating an Note Object instead of allocating each contents
   const [title, setTitle] = useState("");
   const [from, setFrom] = useState("");
@@ -16,8 +20,8 @@ const NewNote = () => {
       const noteObj = { title: title, from: from, contents: contents };
 
       const postedNote = await axios.post(
-        "http://localhost:4000/new-note",
-        noteObj
+        "http://localhost:4000/api/v1/",
+        noteObj,
       );
 
       setError(null);
@@ -26,7 +30,7 @@ const NewNote = () => {
       setContents("");
 
       console.log(postedNote.data);
-      window.location.href = "/";
+      redirect("../notes");
     } catch (err) {
       setError(err);
     }
