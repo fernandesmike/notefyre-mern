@@ -6,7 +6,7 @@ const Note = require("../models/Note");
 // TODO: Create a unified error management
 // TODO: Consider data validations
 
-const getNotes = async (req, res) => {
+const getAllNotes = async (req, res) => {
   try {
     //  Sorting, -1 for Descending and 1 for Ascending
     //  Using lean() will only return plain JS Object not a Mongoose Document
@@ -96,7 +96,7 @@ const updateNote = async (req, res) => {
         new: true,
         // Validates the data against the defined schema
         runValidators: true,
-      }
+      },
     );
 
     if (!updatedNote) {
@@ -140,7 +140,7 @@ const deleteNote = async (req, res) => {
 };
 
 module.exports = {
-  getNotes,
+  getAllNotes,
   getNote,
   createNote,
   updateNote,

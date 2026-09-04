@@ -1,11 +1,16 @@
+.link-wrapper {
+  color: inherit;
+}
+
 .note-wrapper {
   background-image: url("../../assets//shapes/notecard.svg");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   padding: 32px;
   width: 411px;
-  height: 185px;
-  transition: color 0.15s ease-in-out, transform 0.15s ease-in-out;
+  transition:
+    color 0.15s ease-in-out,
+    transform 0.15s ease-in-out;
 }
 
 .note-wrapper:hover,
@@ -13,7 +18,9 @@
   cursor: pointer;
   color: var(--brand-accent);
   transform: scale(1.03);
-  transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+  transition:
+    color 0.3s ease-in-out,
+    transform 0.2s ease-in-out;
 }
 
 .note-card {
