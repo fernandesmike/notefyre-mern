@@ -1,0 +1,31 @@
+.main-wrapper {
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+}
+
+.upper-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.title-area h2 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.title-area p {
+  opacity: 50%;
+}
+
+.lower-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.note-contents {
+  width: 100%;
+  padding: 6px 12px;
+  resize: none;
+}
