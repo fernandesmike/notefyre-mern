@@ -5,6 +5,7 @@ import axios from "axios";
 const NoteDetails = () => {
   const { id } = useParams();
   const [note, setNote] = useState();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     try {
@@ -19,9 +20,43 @@ const NoteDetails = () => {
     } catch (error) {
       console.log(error);
     }
-  }, []);
+  }, [id]);
 
-  return <div>{note ? <p>{note.title}</p> : <p>No Contents</p>}</div>;
+  {
+    //   note ? <p>{note.title}</p> : <p>No Contents</p>;
+    // }
+
+    return (
+      <div>
+        {note ? (
+          <>
+            <div className="upper-section">
+              <div className="title-area">
+                <h2>{note.title}</h2>
+                <p>{note._id}</p>
+              </div>
+              <div className="author-name">
+                <p>
+                  Create by <span>{note.from}</span>
+                </p>
+                <p className="update-timedate">Last saved: {note.updatedAt}</p>
+              </div>
+            </div>
+            <div className="lower-section">
+              <textarea
+                name=""
+                id=""
+                className="note-contents"
+                value={note.contents}
+              ></textarea>
+            </div>
+          </>
+        ) : (
+          <p>No contents</p>
+        )}
+      </div>
+    );
+  }
 };
 
 export default NoteDetails;
