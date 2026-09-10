@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -31,16 +31,23 @@ const NoteDetails = () => {
     <div className={style["parent-return-wrapper"]}>
       {note ? (
         <div className={style["main-wrapper"]}>
-          <div className={style["upper-section"]}>
-            <div className={style["title-area"]}>
-              <h2 className="prm-text">{note.title}</h2>
-              <p className="secondary-text">Note ID: {note._id}</p>
+          <div className={style["upper-section-wrapper"]}>
+            <div className={style["upper-section"]}>
+              <div className={style["title-area"]}>
+                <h2 className="prm-text">{note.title}</h2>
+                <p className="secondary-text">Note ID: {note._id}</p>
+              </div>
+              <div className={style["author-name"]}>
+                <p className="secondary-text">
+                  Created by <span>{note.from}</span>
+                </p>
+                <p className="secondary-text">Last saved: {note.updatedAt}</p>
+              </div>
             </div>
-            <div className="author-name">
-              <p className="secondary-text">
-                Created by <span>{note.from}</span>
-              </p>
-              <p className="secondary-text">Last saved: {note.updatedAt}</p>
+            <div className={style["control-area"]}>
+              <Link to={"../"} className="heading-small">
+                Delete
+              </Link>
             </div>
           </div>
           <div className={style["lower-section"]}>
