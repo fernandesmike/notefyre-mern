@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -9,6 +9,7 @@ const NoteDetails = () => {
   const { id } = useParams();
   const [note, setNote] = useState();
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     try {
@@ -26,6 +27,21 @@ const NoteDetails = () => {
       setLoading(false);
     }
   }, [id]);
+
+  const handleDelete = async () => {
+    try {
+      const delResponse = await axios.delete(
+        `http://localhost:4000/api/v1/${id}`,
+      );
+      const delConfirmation = delResponse.data;
+      console.log(delConfirmation);
+      //  Send the user back one level after deleting a note
+      navigate("..");
+    } catch (error) {
+      console.log(error);
+      window.alert(`There was an error deleting note ${note._id}`);
+    }
+  };
 
   return (
     <div className={style["parent-return-wrapper"]}>
@@ -45,9 +61,7 @@ const NoteDetails = () => {
               </div>
             </div>
             <div className={style["control-area"]}>
-              <Link to={"../"} className="heading-small">
-                Delete
-              </Link>
+              <button onClick={handleDelete}>Delete</button>
             </div>
           </div>
           <div className={style["lower-section"]}>
