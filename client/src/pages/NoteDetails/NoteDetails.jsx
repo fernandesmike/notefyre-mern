@@ -51,8 +51,7 @@ const NoteDetails = () => {
       );
       const updConfirmation = updateResponse.data;
       console.log(updConfirmation);
-      //  Send the user back one level after deleting a note
-      navigate("..");
+      window.alert("Changes has been saved!");
     } catch (error) {
       console.log(error);
       window.alert(`There was an error deleting note ${note._id}`);
