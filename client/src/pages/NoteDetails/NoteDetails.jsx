@@ -43,6 +43,22 @@ const NoteDetails = () => {
     }
   };
 
+  const handleUpdate = async () => {
+    try {
+      const updateResponse = await axios.patch(
+        `http://localhost:4000/api/v1/${id}`,
+        note,
+      );
+      const updConfirmation = updateResponse.data;
+      console.log(updConfirmation);
+      //  Send the user back one level after deleting a note
+      navigate("..");
+    } catch (error) {
+      console.log(error);
+      window.alert(`There was an error deleting note ${note._id}`);
+    }
+  };
+
   return (
     <div className={style["parent-return-wrapper"]}>
       {note ? (
@@ -50,7 +66,14 @@ const NoteDetails = () => {
           <div className={style["upper-section-wrapper"]}>
             <div className={style["upper-section"]}>
               <div className={style["title-area"]}>
-                <h2 className="prm-text">{note.title}</h2>
+                <input
+                  type="text"
+                  value={note.title}
+                  onChange={(e) => {
+                    setNote({ ...note, title: e.target.value });
+                  }}
+                />
+                <button onClick={handleUpdate}>Save changes</button>
                 <p className="secondary-text">Note ID: {note._id}</p>
               </div>
               <div className={style["author-name"]}>
