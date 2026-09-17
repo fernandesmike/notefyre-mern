@@ -2,6 +2,7 @@
   display: flex;
   gap: 24px;
   flex-direction: column;
+  height: 100vh;
 }
 
 .upper-section-wrapper {
@@ -27,9 +28,43 @@
 .lower-section {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
+}
+
+.upper-section button {
+  padding: 16px 24px;
+  margin-left: 8px;
+  background-color: var(--main-text);
+  color: var(--brand-accent);
+  border: 2px solid var(--brand-accent);
+}
+
+.lower-section textarea {
+  height: 100%;
+  resize: none;
+}
+
+.upper-section input {
+  width: auto;
+}
+
+.upper-section input,
+.lower-section textarea {
+  padding: 16px;
+  background-color: var(--card-bg);
+  color: var(--main-text);
+  border: 2px solid var(--card-border);
 }
 
 .note-contents {
   width: 100%;
   padding: 6px 12px;
+}
+
+/* INTERACTION STYLES */
+
+.upper-section button:hover {
+  cursor: pointer;
+  background-color: var(--brand-accent);
+  color: var(--card-bg);
 }

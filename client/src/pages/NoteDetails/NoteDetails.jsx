@@ -50,6 +50,7 @@ const NoteDetails = () => {
         note,
       );
       const updConfirmation = updateResponse.data;
+      setNote(updConfirmation);
       console.log(updConfirmation);
       window.alert("Changes has been saved!");
     } catch (error) {
