@@ -3,6 +3,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Error from "../../components/Error/Error";
 
+// Styling
+import style from "./NewNote.module.css";
+
 const NewNote = () => {
   // For redirecting users
   const redirect = useNavigate();
