@@ -40,24 +40,28 @@ const NewNote = () => {
   };
 
   return (
-    <form action="POST" onSubmit={handleSubmit}>
-      <h1>New note</h1>
+    <form
+      action="POST"
+      onSubmit={handleSubmit}
+      className={style["form-wrapper"]}
+    >
+      <h1 className={style["form-title"]}>CREATE NEW NOTE</h1>
+      <div className={style["title-area"]}>
+        {/* Note title input area */}
+        <input
+          type="text"
+          name="title"
+          id="title"
+          onChange={(e) => {
+            setTitle(e.target.value);
+          }}
+          value={title}
+          placeholder="Give your note a title"
+        />
+        <button>Submit note</button>
+      </div>
 
-      <label htmlFor="title">Title</label>
-      <br />
-      <input
-        type="text"
-        name="title"
-        id="title"
-        onChange={(e) => {
-          setTitle(e.target.value);
-        }}
-        value={title}
-      />
-      <br />
-
-      <label htmlFor="from">From</label>
-      <br />
+      {/* Note from input area */}
       <input
         type="text"
         name="from"
@@ -66,11 +70,10 @@ const NewNote = () => {
           setFrom(e.target.value);
         }}
         value={from}
+        placeholder="Name of the owner"
       />
-      <br />
 
-      <label htmlFor="contents">Contents</label>
-      <br />
+      {/* Note contents input area */}
       <textarea
         name="contents"
         id="contents"
@@ -80,9 +83,9 @@ const NewNote = () => {
           setContents(e.target.value);
         }}
         value={contents}
+        placeholder="Start typing..."
       ></textarea>
 
-      <button>Submit note</button>
       {error && <Error errorMessage={error.message} />}
     </form>
   );
