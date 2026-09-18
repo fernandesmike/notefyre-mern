@@ -3,6 +3,7 @@
   flex-direction: column;
   gap: 24px;
   height: 100vh;
+  padding-bottom: 24px;
 }
 
 .form-title {
@@ -23,6 +24,11 @@ textarea {
   border: 2px solid var(--card-border);
 }
 
+textarea {
+  height: 100%;
+  resize: none;
+}
+
 input::placeholder,
 textarea::placeholder {
   font-size: 1rem;
@@ -41,4 +47,15 @@ button:hover {
   cursor: pointer;
   background-color: var(--brand-accent);
   color: var(--card-bg);
+}
+
+/* Full compatability support */
+/* Override agent config for autofill styling */
+input:autofill,
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: hsl(165, 32%, 93%) !important;
+  -webkit-box-shadow: 0 0 0px 100px var(--card-bg) inset !important;
+  box-shadow: 0 0 0px 100px var(--card-bg) inset !important;
 }
