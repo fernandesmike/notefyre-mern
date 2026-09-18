@@ -3,6 +3,8 @@
   width: 100%;
   text-align: center;
   padding: 16px 0;
+  position: sticky;
+  top: 0;
 }
 
 .notif-container p {
