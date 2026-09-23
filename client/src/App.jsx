@@ -7,7 +7,6 @@ import NewNote from "./pages/NewNote/NewNote";
 import NoteDetails from "./pages/NoteDetails/NoteDetails";
 import Signin from "./pages/Signin/Signin";
 import Register from "./pages/Register/Register";
-import HomeWithNotes from "./pages/HomeWithNotes/HomeWithNotes";
 import PageNotFound from "./pages/Error/PageNotFound";
 
 // Layouts
@@ -39,7 +38,6 @@ function App() {
           <Route path="notes" element={<Home />} />
           <Route path="notes/new" element={<NewNote />} />
           <Route path="notes/:id" element={<NoteDetails />} />
-          <Route path="complete" element={<HomeWithNotes />} />
           <Route path="profile" element={<Profile />} />
         </Route>
 
