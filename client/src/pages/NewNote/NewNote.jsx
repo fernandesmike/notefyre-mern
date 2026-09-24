@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Error from "../../components/Error/Error";
 
@@ -18,12 +18,7 @@ const NewNote = () => {
   const [from, setFrom] = useState("");
   const [contents, setContents] = useState("");
   const [error, setError] = useState();
-
-  // Validator test
-  useEffect(() => {
-    console.log(title);
-    console.log(`Title: ${title} valid: ${ValidateForm(title)}`);
-  }, [title]);
+  const [disable, setDisable] = useState(true);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -48,6 +43,20 @@ const NewNote = () => {
     }
   };
 
+  const handleChange = (e) => {
+    e.preventDefault();
+    const validate = ValidateForm(title);
+
+    setTitle(e.target.value);
+    console.log(title);
+
+    if (validate) {
+      setDisable(false);
+    } else {
+      setDisable(true);
+    }
+  };
+
   return (
     <form
       action="POST"
@@ -61,13 +70,11 @@ const NewNote = () => {
           type="text"
           name="title"
           id="title"
-          onChange={(e) => {
-            setTitle(e.target.value);
-          }}
+          onChange={handleChange}
           value={title}
           placeholder="Give your note a title"
         />
-        <button>Submit note</button>
+        <button disabled={disable}>Submit note</button>
       </div>
 
       {/* Note from input area */}

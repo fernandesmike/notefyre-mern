@@ -23,6 +23,8 @@ const EmptyNotes = () => {
       <Link to="new">
         <CreateNewNote showArrow={true} />
       </Link>
+
+      <button>test</button>
     </section>
   );
 };
