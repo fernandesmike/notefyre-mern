@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Error from "../../components/Error/Error";
 
@@ -7,7 +7,7 @@ import Error from "../../components/Error/Error";
 import style from "./NewNote.module.css";
 
 // Utilities
-import { ValidateForm } from "../../utils/fieldValidator";
+import { ValidateForm, ValidateNoteTitle } from "../../utils/fieldValidator";
 
 const NewNote = () => {
   // For redirecting users
@@ -19,6 +19,18 @@ const NewNote = () => {
   const [contents, setContents] = useState("");
   const [error, setError] = useState();
   const [disable, setDisable] = useState(true);
+
+  useEffect(() => {
+    const validateTitle = ValidateNoteTitle(title);
+
+    console.log(title);
+
+    if (validateTitle.keys < 1) {
+      console.log(title);
+    } else {
+      console.log(validateTitle.placeholder);
+    }
+  }, [title]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,20 +55,6 @@ const NewNote = () => {
     }
   };
 
-  const handleChange = (e) => {
-    e.preventDefault();
-    const validate = ValidateForm(title);
-
-    setTitle(e.target.value);
-    console.log(title);
-
-    if (validate) {
-      setDisable(false);
-    } else {
-      setDisable(true);
-    }
-  };
-
   return (
     <form
       action="POST"
@@ -70,7 +68,9 @@ const NewNote = () => {
           type="text"
           name="title"
           id="title"
-          onChange={handleChange}
+          onChange={(e) => {
+            setTitle(e.target.value);
+          }}
           value={title}
           placeholder="Give your note a title"
         />
