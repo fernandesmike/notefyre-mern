@@ -1,10 +1,13 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Error from "../../components/Error/Error";
 
 // Styling
 import style from "./NewNote.module.css";
+
+// Utilities
+import { ValidateForm } from "../../utils/fieldValidator";
 
 const NewNote = () => {
   // For redirecting users
@@ -15,6 +18,12 @@ const NewNote = () => {
   const [from, setFrom] = useState("");
   const [contents, setContents] = useState("");
   const [error, setError] = useState();
+
+  // Validator test
+  useEffect(() => {
+    console.log(title);
+    console.log(`Title: ${title} valid: ${ValidateForm(title)}`);
+  }, [title]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
