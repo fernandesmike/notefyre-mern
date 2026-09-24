@@ -13,7 +13,7 @@ export const ValidateNoteTitle = (fieldValue) => {
   const d = new Date();
 
   if (fieldValue.trim().length < 1) {
-    titleError.placeholder = `Draft ${d.toUTCString()}`;
+    titleError.placeholder = `[Draft] ${d.toLocaleString()}`;
   }
 
   return titleError;
