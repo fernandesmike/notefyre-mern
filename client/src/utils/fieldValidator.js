@@ -1,4 +1,4 @@
-export const ValidateForm = (fieldValue) => {
+export const validateForm = (fieldValue) => {
   const fieldErrors = {};
 
   if (fieldValue.trim().length < 1) {
@@ -8,7 +8,7 @@ export const ValidateForm = (fieldValue) => {
   return fieldErrors;
 };
 
-export const ValidateNoteTitle = (fieldValue) => {
+export const validateNoteTitle = (fieldValue) => {
   const titleError = {};
   const d = new Date();
 
@@ -17,4 +17,10 @@ export const ValidateNoteTitle = (fieldValue) => {
   }
 
   return titleError;
+};
+
+export const validateNoteContents = (fieldValue) => {
+  const errors = {};
+
+  return errors;
 };

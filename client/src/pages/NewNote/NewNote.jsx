@@ -7,7 +7,7 @@ import Error from "../../components/Error/Error";
 import style from "./NewNote.module.css";
 
 // Utilities
-import { ValidateForm, ValidateNoteTitle } from "../../utils/fieldValidator";
+import { validateNoteTitle } from "../../utils/fieldValidator";
 
 const NewNote = () => {
   // For redirecting users
@@ -18,14 +18,13 @@ const NewNote = () => {
   const [from, setFrom] = useState("");
   const [contents, setContents] = useState("");
   const [error, setError] = useState();
-  const [disable, setDisable] = useState(true);
 
   useEffect(() => {
-    const validateTitle = ValidateNoteTitle(title);
+    const validateTitle = validateNoteTitle(title);
 
     console.log(title);
 
-    if (validateTitle.keys < 1) {
+    if (Object.keys(validateTitle) < 1) {
       console.log(title);
     } else {
       console.log(validateTitle.placeholder);
@@ -62,6 +61,9 @@ const NewNote = () => {
       className={style["form-wrapper"]}
     >
       <h1 className={style["form-title"]}>CREATE NEW NOTE</h1>
+
+      {error && <Error errorMessage={error.message} />}
+
       <div className={style["title-area"]}>
         {/* Note title input area */}
         <input
@@ -74,7 +76,7 @@ const NewNote = () => {
           value={title}
           placeholder="Give your note a title"
         />
-        <button disabled={disable}>Submit note</button>
+        <button>Submit note</button>
       </div>
 
       {/* Note from input area */}
@@ -101,8 +103,6 @@ const NewNote = () => {
         value={contents}
         placeholder="Start typing..."
       ></textarea>
-
-      {error && <Error errorMessage={error.message} />}
     </form>
   );
 };
