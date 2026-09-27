@@ -1,0 +1,59 @@
+.link-wrapper {
+  color: inherit;
+}
+
+.note-wrapper {
+  background-image: url("../../assets//shapes/notecard.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 32px;
+  width: 411px;
+  transition:
+    color 0.15s ease-in-out,
+    transform 0.15s ease-in-out;
+}
+
+.note-wrapper:hover,
+.note-wrapper:hover h4 {
+  cursor: pointer;
+  color: var(--brand-accent);
+  transform: scale(1.03);
+  transition:
+    color 0.3s ease-in-out,
+    transform 0.2s ease-in-out;
+}
+
+.note-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+
+.icon-container {
+  position: absolute;
+  top: 0px;
+  right: 0;
+}
+
+.icon-container:hover {
+  cursor: pointer;
+}
+
+.icon-container img {
+  fill: var(--brand-accent);
+}
+
+.tags-container {
+  display: flex;
+  gap: 16px;
+  text-transform: uppercase;
+}
+
+.tags-container p {
+  border-radius: 4px;
+  width: fit-content;
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #203642;
+}

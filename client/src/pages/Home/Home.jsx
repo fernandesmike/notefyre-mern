@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+// Components
 import NoteCard from "../../components/NoteCard/NoteCard";
-import NoNotes from "../../components/EmptyState/NoNotes";
+import EmptyNotes from "../../components/EmptyState/EmptyNotes";
 
 const Home = () => {
   const [notes, setNotes] = useState();
@@ -10,13 +11,13 @@ const Home = () => {
   useEffect(() => {
     try {
       const fetchAllNotes = async () => {
-        const response = await axios.get("http://localhost:4000/api/v1/notes");
+        const response = await axios.get("http://localhost:4000/api/v1/");
         const allNotes = response.data;
-        setNotes(allNotes);
-        console.log(allNotes);
+        setNotes(allNotes.notes);
       };
 
       fetchAllNotes();
+      console.log(notes);
     } catch (error) {
       console.log(error);
     }
@@ -30,7 +31,7 @@ const Home = () => {
           {notes ? (
             notes.map((note) => <NoteCard key={note._id} note={note} />)
           ) : (
-            <NoNotes />
+            <EmptyNotes />
           )}
         </div>
       </section>

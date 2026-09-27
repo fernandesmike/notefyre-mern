@@ -1,6 +1,6 @@
 const {
   getNote,
-  getNotes,
+  getAllNotes,
   createNote,
   updateNote,
   deleteNote,
@@ -10,7 +10,7 @@ const router = express.Router();
 require("dotenv").config();
 
 // Get all notes handler
-router.get(process.env.API_NO_ID_ENDPOINT, getNotes);
+router.get(process.env.API_NO_ID_ENDPOINT, getAllNotes);
 
 // Get a single note handler
 router.get(process.env.API_ID_ENDPOINT, getNote);

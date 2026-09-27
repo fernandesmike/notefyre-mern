@@ -1,0 +1,20 @@
+import { Outlet } from "react-router-dom";
+
+// Components
+import Header from "../components/Header/Header";
+import Notification from "../components/Notification/Notification";
+
+const GuestLayout = () => {
+  return (
+    <main>
+      {/* TODO: Only show this if the client is in guest mode */}
+      <Notification />
+      <div className="body-wrapper">
+        <Header />
+        <Outlet />
+      </div>
+    </main>
+  );
+};
+
+export default GuestLayout;

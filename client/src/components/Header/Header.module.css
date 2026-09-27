@@ -3,6 +3,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 32px 0px;
+  color: inherit;
 }
 
 .account-section {
@@ -12,6 +13,7 @@ header {
 }
 
 .credentials p {
+  color: var(--main-txt);
   line-height: 130%;
 }
 

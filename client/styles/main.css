@@ -10,5 +10,8 @@ body {
   /* Font */
   font-family: "Outfit", Verdana, Tahoma, sans-serif;
   font-size: 1.125rem;
+}
+
+body .body-wrapper {
   margin: 0 80px;
 }

@@ -1,15 +1,18 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 
 // Pages
 import Home from "./pages/Home/Home";
 import Profile from "./pages/Profile/Profile";
-import PageLayout from "./layout/PageLayout";
 import NewNote from "./pages/NewNote/NewNote";
 import NoteDetails from "./pages/NoteDetails/NoteDetails";
 import Signin from "./pages/Signin/Signin";
 import Register from "./pages/Register/Register";
-import DefaultHome from "./pages/DefaultHome/DefaultHome";
-import HomeWithNotes from "./pages/HomeWithNotes/HomeWithNotes";
+import PageNotFound from "./pages/Error/PageNotFound";
+
+// Layouts
+import GuestLayout from "./layout/GuestLayout";
+// import UserLayout from "./layout/UserLayout";
+import AuthLayout from "./layout/AuthLayout";
 
 // Main styling
 import "../styles/main.css";
@@ -20,16 +23,27 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Signin />} />
-        <Route path="/register" element={<Register />} />
-        <Route element={<PageLayout />}>  
-          <Route path="/home" element={<Home />} />
-          <Route path="/default" element={<DefaultHome />} />
-          <Route path="/complete" element={<HomeWithNotes />} />
-          <Route path="/new" element={<NewNote />} />
-          <Route path="/:id" element={<NoteDetails />} />
-          <Route path="/me" element={<Profile />} />
+        {/* Skip the empty endpoint and bounce the user directly to login screen : For semantic purposes */}
+        <Route path="/" element={<Navigate to={"/signin"} />} />
+
+        {/* AuthLayout route wraps all authentication related paths */}
+        <Route element={<AuthLayout />}>
+          <Route path="/signin" element={<Signin />} />
+          <Route path="/register" element={<Register />} />
         </Route>
+
+        {/* This layout wraps all unauthenticated routes */}
+        <Route path="/guest" element={<GuestLayout />}>
+          <Route index element={<Navigate to="notes" />} />
+          <Route path="notes" element={<Home />} />
+          <Route path="notes/new" element={<NewNote />} />
+          <Route path="notes/:id" element={<NoteDetails />} />
+          <Route path="profile" element={<Profile />} />
+        </Route>
+
+        {/* This layout wraps all protected (logged in users) routes */}
+
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </>
   );

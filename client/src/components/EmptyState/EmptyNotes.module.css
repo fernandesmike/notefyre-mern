@@ -1,3 +1,9 @@
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
 .wrapper {
   display: flex;
   gap: 24px;
@@ -15,3 +21,4 @@
 .text-wrapper h1 {
   width: 100%;
 }
+

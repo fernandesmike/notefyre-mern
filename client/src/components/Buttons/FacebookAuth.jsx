@@ -8,7 +8,7 @@ const FacebookAuth = ({ procedure }) => {
   return (
     <div className={style["fb-prompt"]}>
       <img src={FbIcon} alt="Facebook Icon" />
-      <a href="">{procedure} using Facebook</a>
+      <a href="">{procedure} with Facebook</a>
     </div>
   );
 };
