@@ -21,7 +21,7 @@ const Home = () => {
     } catch (error) {
       console.log(error);
     }
-  }, []);
+  }, [notes]);
 
   return (
     <div>
