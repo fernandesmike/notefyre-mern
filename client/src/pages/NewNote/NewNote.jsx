@@ -28,7 +28,6 @@ const NewNote = ({ currentUser }) => {
 
     try {
       const noteObj = { title: validTitle, from: from, contents: contents };
-      console.log(noteObj);
 
       const postedNote = await axios.post(
         "http://localhost:4000/api/v1/",

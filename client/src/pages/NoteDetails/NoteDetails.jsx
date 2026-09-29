@@ -5,6 +5,9 @@ import axios from "axios";
 // Styling
 import style from "./NoteDetails.module.css";
 
+// Utilities
+import { validateNoteTitle } from "../../utils/fieldValidator";
+
 const NoteDetails = () => {
   const { id } = useParams();
   const [note, setNote] = useState();
@@ -34,7 +37,6 @@ const NoteDetails = () => {
         `http://localhost:4000/api/v1/${id}`,
       );
       const delConfirmation = delResponse.data;
-      console.log(delConfirmation);
       //  Send the user back one level after deleting a note
       navigate("..");
     } catch (error) {
@@ -44,10 +46,12 @@ const NoteDetails = () => {
   };
 
   const handleUpdate = async () => {
+    const validTitle = validateNoteTitle(note.title);
+
     try {
       const updateResponse = await axios.patch(
         `http://localhost:4000/api/v1/${id}`,
-        note,
+        {...note, title: validTitle},
       );
       const updConfirmation = updateResponse.data;
       setNote(updConfirmation);
