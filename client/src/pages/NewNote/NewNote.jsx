@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Error from "../../components/Error/Error";
 
@@ -25,10 +25,10 @@ const NewNote = () => {
 
     // Validate the note Title prior POST request
     const validTitle = validateNoteTitle(title);
-    console.log(validTitle);
 
     try {
       const noteObj = { title: validTitle, from: from, contents: contents };
+      console.log(noteObj);
 
       const postedNote = await axios.post(
         "http://localhost:4000/api/v1/",

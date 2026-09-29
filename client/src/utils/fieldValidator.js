@@ -3,11 +3,5 @@ export const validateNoteTitle = (title) => {
     return "Untitled Note";
   }
 
-  return title;
-};
-
-export const validateNoteContents = (content) => {
-  const errors = {};
-
-  return errors;
+  return title.trim();
 };
