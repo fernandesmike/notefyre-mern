@@ -20,14 +20,18 @@ const NewNote = () => {
   const [error, setError] = useState();
 
   useEffect(() => {
-    const validateTitle = validateNoteTitle(title);
+    const validatedTitle = validateNoteTitle(title);
 
     console.log(title);
 
-    if (Object.keys(validateTitle) < 1) {
+    if (Object.keys(validatedTitle) < 1) {
       console.log(title);
+      console.log(Object.keys(validatedTitle) < 1);
+      console.log("less than");
     } else {
-      console.log(validateTitle.placeholder);
+      console.log(validatedTitle.placeholder);
+      console.log(Object.keys(validatedTitle) < 1);
+      console.log("greater");
     }
   }, [title]);
 
