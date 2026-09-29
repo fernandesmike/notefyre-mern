@@ -19,27 +19,16 @@ const NewNote = () => {
   const [contents, setContents] = useState("");
   const [error, setError] = useState();
 
-  useEffect(() => {
-    const validatedTitle = validateNoteTitle(title);
-
-    console.log(title);
-
-    if (Object.keys(validatedTitle) < 1) {
-      console.log(title);
-      console.log(Object.keys(validatedTitle) < 1);
-      console.log("less than");
-    } else {
-      console.log(validatedTitle.placeholder);
-      console.log(Object.keys(validatedTitle) < 1);
-      console.log("greater");
-    }
-  }, [title]);
-
+  // onSubmit handler function
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Validate the note Title prior POST request
+    const validTitle = validateNoteTitle(title);
+    console.log(validTitle);
+
     try {
-      const noteObj = { title: title, from: from, contents: contents };
+      const noteObj = { title: validTitle, from: from, contents: contents };
 
       const postedNote = await axios.post(
         "http://localhost:4000/api/v1/",
@@ -66,6 +55,7 @@ const NewNote = () => {
     >
       <h1 className={style["form-title"]}>CREATE NEW NOTE</h1>
 
+      {/* Error handling */}
       {error && <Error errorMessage={error.message} />}
 
       <div className={style["title-area"]}>

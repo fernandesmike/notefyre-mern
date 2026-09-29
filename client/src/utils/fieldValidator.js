@@ -1,16 +1,12 @@
-export const validateNoteTitle = (fieldValue) => {
-  const titleError = {};
-  const d = new Date();
-
-  if (fieldValue.trim().length < 1) {
-    titleError.message = "Empty title, saved as draft!";
-    titleError.placeholder = `[Draft] ${d.toLocaleString()}`;
+export const validateNoteTitle = (title) => {
+  if (title.trim().length < 1) {
+    return "Untitled Note";
   }
 
-  return titleError;
+  return title;
 };
 
-export const validateNoteContents = (fieldValue) => {
+export const validateNoteContents = (content) => {
   const errors = {};
 
   return errors;
