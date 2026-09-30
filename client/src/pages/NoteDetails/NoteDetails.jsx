@@ -51,7 +51,7 @@ const NoteDetails = () => {
     try {
       const updateResponse = await axios.patch(
         `http://localhost:4000/api/v1/${id}`,
-        {...note, title: validTitle},
+        { ...note, title: validTitle },
       );
       const updConfirmation = updateResponse.data;
       setNote(updConfirmation);
