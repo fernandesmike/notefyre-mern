@@ -9,13 +9,13 @@ import style from "./NewNote.module.css";
 import { validateNoteTitle } from "../../utils/fieldValidator";
 import { fetchAllNote } from "../../services/noteService";
 
-const NewNote = ({ currentUser }) => {
+const NewNote = () => {
   // For redirecting users
   const redirect = useNavigate();
 
   // TODO: Try creating an Note Object instead of allocating each contents
   const [title, setTitle] = useState("");
-  const [from, setFrom] = useState(currentUser);
+  const [from, setFrom] = useState();
   const [contents, setContents] = useState("");
   const [error, setError] = useState();
 
