@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Error from "../../components/Error/Error";
@@ -8,6 +7,7 @@ import style from "./NewNote.module.css";
 
 // Utilities
 import { validateNoteTitle } from "../../utils/fieldValidator";
+import { addNote } from "../../services/noteApi";
 
 const NewNote = ({ currentUser }) => {
   // For redirecting users
@@ -29,10 +29,7 @@ const NewNote = ({ currentUser }) => {
     try {
       const noteObj = { title: validTitle, from: from, contents: contents };
 
-      const postedNote = await axios.post(
-        "http://localhost:4000/api/v1/",
-        noteObj,
-      );
+      const postedNote = await addNote(noteObj);
 
       setError(null);
       setTitle("");
