@@ -6,7 +6,7 @@ import style from "./NoteDetails.module.css";
 
 // Utilities
 import { validateNoteTitle } from "../../utils/fieldValidator";
-import { deleteNote, singleNote, updateNote } from "../../services/noteApi";
+import { deleteNote, singleNote, updateNote } from "../../services/noteService";
 
 const NoteDetails = () => {
   const { id } = useParams();

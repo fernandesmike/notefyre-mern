@@ -7,7 +7,7 @@ import style from "./NewNote.module.css";
 
 // Utilities
 import { validateNoteTitle } from "../../utils/fieldValidator";
-import { addNote } from "../../services/noteApi";
+import { addNote } from "../../services/noteService";
 
 const NewNote = ({ currentUser }) => {
   // For redirecting users
