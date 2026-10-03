@@ -37,8 +37,7 @@ const NoteDetails = () => {
 
   const handleDelete = async () => {
     try {
-      const delResponse = await deleteNote(id);
-      const delConfirmation = delResponse.data;
+      await deleteNote(id);
       //  Send the user back one level after deleting a note
       navigate("..");
     } catch (error) {
