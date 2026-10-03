@@ -7,7 +7,7 @@ import style from "./NewNote.module.css";
 
 // Utilities
 import { validateNoteTitle } from "../../utils/fieldValidator";
-import { addNote } from "../../services/noteService";
+import { fetchAllNote } from "../../services/noteService";
 
 const NewNote = ({ currentUser }) => {
   // For redirecting users
@@ -29,7 +29,7 @@ const NewNote = ({ currentUser }) => {
     try {
       const noteObj = { title: validTitle, from: from, contents: contents };
 
-      const postedNote = await addNote(noteObj);
+      const postedNote = await fetchAllNote(noteObj);
 
       setError(null);
       setTitle("");

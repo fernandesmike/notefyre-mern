@@ -6,7 +6,11 @@ import style from "./NoteDetails.module.css";
 
 // Utilities
 import { validateNoteTitle } from "../../utils/fieldValidator";
-import { deleteNote, singleNote, updateNote } from "../../services/noteService";
+import {
+  deleteNote,
+  fetchNoteById,
+  updateNote,
+} from "../../services/noteService";
 
 const NoteDetails = () => {
   const { id } = useParams();
@@ -17,7 +21,7 @@ const NoteDetails = () => {
   useEffect(() => {
     try {
       const fetchSingleNote = async () => {
-        const response = await singleNote(id);
+        const response = await fetchNoteById(id);
         const noteObj = response.data;
         console.log(noteObj.note);
         setNote(noteObj.note);

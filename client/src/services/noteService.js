@@ -1,10 +1,14 @@
 import { axiosClient } from "../api/client";
 
-export const addNote = async (noteObj) => {
+export const addSingleNote = async (noteObj) => {
   return await axiosClient.post("/", noteObj);
 };
 
-export const singleNote = async (noteId) => {
+export const fetchAllNote = async () => {
+  return await axiosClient.get("/");
+};
+
+export const fetchNoteById = async (noteId) => {
   return await axiosClient.get({ noteId });
 };
 
