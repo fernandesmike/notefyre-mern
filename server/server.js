@@ -18,7 +18,7 @@ app.use(logger);
 
 // Mount or consume all the routes inside
 // If a path was specified (as first argument), it appends the all the routes unto that path or a route that matches it. Otherwise, it consumes all the routes inside. e.g. app.use("/user", route), all the routes inside route will append to the "/user" path, which results to "/user/routeInside"
-app.use(process.env.BASE_API_URL, routes);
+app.use(`${process.env.BASE_API_URL}/notes`, routes);
 
 // Connect to the databse and start the server
 connectDb(() => {
