@@ -1,8 +1,10 @@
 import axios from "axios";
 
+// import.meta.env.VITE_NOTEFYRE_API_BASE_URL
+
 // Axios instance with base configurations
 export const axiosClient = axios.create({
-  baseUrl: import.meta.env.VITE_NOTEFYRE_API_BASE_URL,
+  baseURL: import.meta.env.VITE_API_BASE_URL,
   timeout: 5000,
 });
 

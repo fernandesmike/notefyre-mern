@@ -7,7 +7,7 @@ import style from "./NewNote.module.css";
 
 // Utilities
 import { validateNoteTitle } from "../../utils/fieldValidator";
-import { fetchAllNote } from "../../services/noteService";
+import { addSingleNote } from "../../services/noteService";
 
 const NewNote = () => {
   // For redirecting users
@@ -15,7 +15,7 @@ const NewNote = () => {
 
   // TODO: Try creating an Note Object instead of allocating each contents
   const [title, setTitle] = useState("");
-  const [from, setFrom] = useState();
+  const [from, setFrom] = useState("");
   const [contents, setContents] = useState("");
   const [error, setError] = useState();
 
@@ -29,7 +29,7 @@ const NewNote = () => {
     try {
       const noteObj = { title: validTitle, from: from, contents: contents };
 
-      const postedNote = await fetchAllNote(noteObj);
+      const postedNote = await addSingleNote(noteObj);
 
       setError(null);
       setTitle("");
