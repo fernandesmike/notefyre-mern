@@ -1,9 +1,16 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from "axios";
 
 // Styling
 import style from "./NoteDetails.module.css";
+
+// Utilities
+import { validateNoteTitle } from "../../utils/fieldValidator";
+import {
+  deleteNote,
+  fetchNoteById,
+  updateNote,
+} from "../../services/noteService";
 
 const NoteDetails = () => {
   const { id } = useParams();
@@ -14,7 +21,7 @@ const NoteDetails = () => {
   useEffect(() => {
     try {
       const fetchSingleNote = async () => {
-        const response = await axios.get(`http://localhost:4000/api/v1/${id}`);
+        const response = await fetchNoteById(id);
         const noteObj = response.data;
         console.log(noteObj.note);
         setNote(noteObj.note);
@@ -30,11 +37,7 @@ const NoteDetails = () => {
 
   const handleDelete = async () => {
     try {
-      const delResponse = await axios.delete(
-        `http://localhost:4000/api/v1/${id}`,
-      );
-      const delConfirmation = delResponse.data;
-      console.log(delConfirmation);
+      await deleteNote(id);
       //  Send the user back one level after deleting a note
       navigate("..");
     } catch (error) {
@@ -44,11 +47,13 @@ const NoteDetails = () => {
   };
 
   const handleUpdate = async () => {
+    const validTitle = validateNoteTitle(note.title);
+
     try {
-      const updateResponse = await axios.patch(
-        `http://localhost:4000/api/v1/${id}`,
-        note,
-      );
+      const updateResponse = await updateNote(id, {
+        ...note,
+        title: validTitle,
+      });
       const updConfirmation = updateResponse.data;
       setNote(updConfirmation);
       console.log(updConfirmation);

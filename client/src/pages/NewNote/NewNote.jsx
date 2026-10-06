@@ -1,5 +1,4 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Error from "../../components/Error/Error";
 
@@ -7,7 +6,8 @@ import Error from "../../components/Error/Error";
 import style from "./NewNote.module.css";
 
 // Utilities
-import { ValidateForm, ValidateNoteTitle } from "../../utils/fieldValidator";
+import { validateNoteTitle } from "../../utils/fieldValidator";
+import { addSingleNote } from "../../services/noteService";
 
 const NewNote = () => {
   // For redirecting users
@@ -18,30 +18,18 @@ const NewNote = () => {
   const [from, setFrom] = useState("");
   const [contents, setContents] = useState("");
   const [error, setError] = useState();
-  const [disable, setDisable] = useState(true);
 
-  useEffect(() => {
-    const validateTitle = ValidateNoteTitle(title);
-
-    console.log(title);
-
-    if (validateTitle.keys < 1) {
-      console.log(title);
-    } else {
-      console.log(validateTitle.placeholder);
-    }
-  }, [title]);
-
+  // onSubmit handler function
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      const noteObj = { title: title, from: from, contents: contents };
+    // Validate the note Title prior POST request
+    const validTitle = validateNoteTitle(title);
 
-      const postedNote = await axios.post(
-        "http://localhost:4000/api/v1/",
-        noteObj,
-      );
+    try {
+      const noteObj = { title: validTitle, from: from, contents: contents };
+
+      const postedNote = await addSingleNote(noteObj);
 
       setError(null);
       setTitle("");
@@ -62,6 +50,10 @@ const NewNote = () => {
       className={style["form-wrapper"]}
     >
       <h1 className={style["form-title"]}>CREATE NEW NOTE</h1>
+
+      {/* Error handling */}
+      {error && <Error errorMessage={error.message} />}
+
       <div className={style["title-area"]}>
         {/* Note title input area */}
         <input
@@ -74,7 +66,7 @@ const NewNote = () => {
           value={title}
           placeholder="Give your note a title"
         />
-        <button disabled={disable}>Submit note</button>
+        <button>Submit note</button>
       </div>
 
       {/* Note from input area */}
@@ -101,8 +93,6 @@ const NewNote = () => {
         value={contents}
         placeholder="Start typing..."
       ></textarea>
-
-      {error && <Error errorMessage={error.message} />}
     </form>
   );
 };
